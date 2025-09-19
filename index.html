@@ -3,1231 +3,1473 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI & Автоматизация - Ваши идеи, мои решения | Фрилансер по ИИ и чат-ботам</title>
-    <meta name="description" content="Профессиональные услуги по разработке чат-ботов, генерации контента, автоматизации бизнеса и интеграции ИИ. Telegram-боты, создание изображений, работа с текстами.">
-    <meta name="keywords" content="чат-боты, телеграм боты, ИИ, автоматизация, генерация контента, фрилансер, разработка ботов">
-    <meta name="author" content="AI Solutions">
-    <meta property="og:title" content="AI & Автоматизация - Ваши идеи, мои решения">
-    <meta property="og:description" content="Профессиональные услуги по разработке чат-ботов, генерации контента и автоматизации бизнеса">
+    <title>TrustSolution | AI-решения для вашего бизнеса</title>
+    <meta name="description" content="Создаем интеллектуальные решения: чат-боты, генерация контента, автоматизация процессов с использованием AI">
+    <meta name="keywords" content="AI решения, чат-боты, генерация изображений, автоматизация, нейросети">
+    <meta name="author" content="TrustSolution">
+    <meta property="og:title" content="TrustSolution | AI-решения для бизнеса">
+    <meta property="og:description" content="Создаем интеллектуальные решения с использованием искусственного интеллекта">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        :root {
+            --primary: #004A99;
+            --primary-light: #3A76C2;
+            --primary-dark: #003066;
+            --accent: #F25C05;
+            --accent-light: #FF8C42;
+            --accent-dark: #C14907;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
         }
-        .service-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        /* Light theme */
+        [data-theme="light"] {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --border-color: #E2E8F0;
+            --shadow-color: rgba(0, 74, 153, 0.08);
+            --hero-bg: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
+            --card-shadow: 0 10px 25px -5px var(--shadow-color);
         }
-        .service-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+        /* Dark theme */
+        [data-theme="dark"] {
+            --bg-primary: #0F172A;
+            --bg-secondary: #1E293B;
+            --bg-card: #1E293B;
+            --text-primary: #F1F5F9;
+            --text-secondary: #CBD5E1;
+            --text-muted: #64748B;
+            --border-color: #334155;
+            --shadow-color: rgba(0, 0, 0, 0.25);
+            --hero-bg: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            --card-shadow: 0 10px 25px -5px var(--shadow-color);
         }
-        .animate-fade-in {
-            animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+        /* Auto theme based on system preference */
+        @media (prefers-color-scheme: light) {
+            :root:not([data-theme]) {
+                --bg-primary: #FFFFFF;
+                --bg-secondary: #F8FAFC;
+                --bg-card: #FFFFFF;
+                --text-primary: #1E293B;
+                --text-secondary: #64748B;
+                --text-muted: #94A3B8;
+                --border-color: #E2E8F0;
+                --shadow-color: rgba(0, 74, 153, 0.08);
+                --hero-bg: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
+                --card-shadow: 0 10px 25px -5px var(--shadow-color);
+            }
         }
-        .animate-slide-up {
-            animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme]) {
+                --bg-primary: #0F172A;
+                --bg-secondary: #1E293B;
+                --bg-card: #1E293B;
+                --text-primary: #F1F5F9;
+                --text-secondary: #CBD5E1;
+                --text-muted: #64748B;
+                --border-color: #334155;
+                --shadow-color: rgba(0, 0, 0, 0.25);
+                --hero-bg: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+                --card-shadow: 0 10px 25px -5px var(--shadow-color);
+            }
         }
-        .animate-slide-left {
-            animation: slideLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .animate-slide-right {
-            animation: slideRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
         }
-        .animate-bounce-in {
-            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
-        .animate-pulse-slow {
-            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
         }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .animate-glow {
-            animation: glow 2s ease-in-out infinite alternate;
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
         }
-        .animate-shimmer {
-            animation: shimmer 3s ease-in-out infinite;
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
-        .animate-rotate-slow {
-            animation: rotateSlow 20s linear infinite;
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
         }
-        .animate-scale-pulse {
-            animation: scalePulse 2s ease-in-out infinite;
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
-        .hover-lift {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
         }
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
         }
-        .portfolio-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        /* Header */
+        .header {
+            background: var(--bg-primary);
+            box-shadow: 0 4px 20px var(--shadow-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .header.scrolled {
+            box-shadow: 0 6px 30px var(--shadow-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .theme-switcher {
+            position: relative;
+        }
+
+        .theme-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .theme-btn:hover {
+            background: var(--accent);
+            color: white;
+            transform: rotate(15deg);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--hero-bg);
+            padding: 140px 0 100px;
             position: relative;
             overflow: hidden;
         }
-        .portfolio-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            opacity: 0.05;
+            z-index: 0;
         }
-        .portfolio-card::before {
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(242, 92, 5, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 16px 36px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(242, 92, 5, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
         }
-        .portfolio-card:hover::before {
+
+        .cta-button:hover::before {
             left: 100%;
         }
-        .coming-soon {
-            position: relative;
-            overflow: hidden;
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(242, 92, 5, 0.4);
         }
-        .coming-soon::after {
-            content: 'Скоро';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--primary);
             color: white;
-            padding: 4px 12px;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual-content {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            background: var(--gradient-primary);
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-        /* Modern Carousel Styles (shadcn/ui inspired) */
-        .carousel-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            touch-action: pan-y;
-        }
-
-        .carousel-content {
-            display: flex;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            gap: 1rem;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .carousel-item {
-            flex: 0 0 auto;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        @media (min-width: 768px) {
-            .carousel-item {
-                width: 50%;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .carousel-item {
-                width: 33.333%;
-            }
-        }
-
-        .project-card {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
-            border: 1px solid rgba(71, 85, 105, 0.3);
-            border-radius: 0.75rem;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
-            border-color: rgba(59, 130, 246, 0.5);
-        }
-
-        .project-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .project-image > div {
-            width: 100%;
-            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #f1f5f9;
-            margin-bottom: 0.75rem;
-            line-height: 1.2;
-        }
-
-        .project-description {
-            color: rgba(241, 245, 249, 0.8);
-            font-size: 0.875rem;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-            flex: 1;
-        }
-
-        .project-stats {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            gap: 0.5rem;
-        }
-
-        .status {
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .status.completed {
-            background: rgba(34, 197, 94, 0.2);
-            color: #22c55e;
-            border: 1px solid rgba(34, 197, 94, 0.3);
-        }
-
-        .status.development {
-            background: rgba(251, 191, 36, 0.2);
-            color: #fbbf24;
-            border: 1px solid rgba(251, 191, 36, 0.3);
-        }
-
-        .metric {
-            color: rgba(241, 245, 249, 0.6);
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .tech-tag {
-            background: rgba(59, 130, 246, 0.1);
-            color: #60a5fa;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.375rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        .project-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
             color: white;
-            border: none;
-            padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 4rem;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-visual-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(30deg);
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .project-btn:hover {
-            background: linear-gradient(135deg, #1d4ed8, #1e40af);
-            transform: translateY(-1px);
-            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
-        }
-
-        .project-btn:active {
-            transform: translateY(0);
-        }
-
-        /* Navigation buttons */
-        .carousel-prev,
-        .carousel-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(71, 85, 105, 0.3);
-            color: #94a3b8;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(8px);
-            z-index: 10;
-        }
-
-        .carousel-prev:hover,
-        .carousel-next:hover {
-            background: rgba(59, 130, 246, 0.1);
-            border-color: rgba(59, 130, 246, 0.3);
-            color: #60a5fa;
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        .carousel-prev {
-            left: -20px;
-        }
-
-        .carousel-next {
-            right: -20px;
-        }
-
-        @media (max-width: 768px) {
-            .carousel-prev {
-                left: 8px;
-            }
-            
-            .carousel-next {
-                right: 8px;
-            }
-            
-            .carousel-item {
-                width: 100%;
-                max-width: 350px;
-            }
-        }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98));
-            margin: 2% auto;
-            padding: 0;
-            border: 1px solid rgba(94, 234, 212, 0.3);
-            border-radius: 1.2rem;
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px var(--glow-primary);
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, var(--neon-blue), var(--neon-green));
-            padding: 1.5rem;
-            border-radius: 1.2rem 1.2rem 0 0;
-            position: relative;
-        }
-
-        .modal-header::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            border-radius: 1.2rem 1.2rem 0 0;
-        }
-
-        .modal-title {
             color: white;
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin: 0;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1rem;
-            margin: 0.5rem 0 0 0;
-        }
-
-        .modal-body {
-            padding: 2rem;
-            color: #f1f5f9;
-        }
-
-        .modal-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-description {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 2rem;
-            color: rgba(241, 245, 249, 0.9);
-        }
-
-        .modal-features {
-            margin-bottom: 2rem;
-        }
-
-        .modal-features h3 {
-            color: var(--glow-primary);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .feature-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(94, 234, 212, 0.2);
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .feature-list li::before {
-            content: "▶";
-            position: absolute;
-            left: 0;
-            color: var(--neon-green);
-            font-size: 0.8rem;
-        }
-
-        .modal-tech {
-            margin-bottom: 2rem;
-        }
-
-        .modal-tech h3 {
-            color: var(--glow-primary);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 0.5rem;
-        }
-
-        .tech-item {
-            background: rgba(56, 189, 248, 0.15);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            text-align: center;
-            color: #7dd3fc;
-            font-size: 0.9rem;
-        }
-
-        .modal-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-item {
-            background: rgba(15, 23, 42, 0.5);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(94, 234, 212, 0.2);
-            text-align: center;
-        }
-
-        .stat-value {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--neon-green);
-            margin-bottom: 0.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            animation: float 6s ease-in-out infinite;
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: rgba(241, 245, 249, 0.7);
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-accent);
+            top: 20px;
+            right: -20px;
+            animation-delay: 0s;
         }
 
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            bottom: 40px;
+            left: -20px;
+            animation-delay: 2s;
         }
 
-        .modal-close:hover {
-            background: rgba(255, 0, 0, 0.3);
-            border-color: rgba(255, 0, 0, 0.5);
-            transform: scale(1.1);
+        .floating-element:nth-child(3) {
+            width: 70px;
+            height: 70px;
+            background: var(--accent);
+            top: 50%;
+            right: -30px;
+            animation-delay: 4s;
         }
 
-        .modal-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
 
-        .modal-btn {
-            padding: 0.75rem 2rem;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            text-decoration: none;
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            position: relative;
             display: inline-block;
         }
 
-        .modal-btn-primary {
-            background: linear-gradient(135deg, var(--neon-blue), var(--neon-green));
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: var(--gradient-accent);
+            transition: height 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow-color);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
             color: white;
+            box-shadow: 0 10px 20px rgba(0, 74, 153, 0.2);
+            position: relative;
+            z-index: 2;
         }
 
-        .modal-btn-secondary {
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+            flex-grow: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-features li {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .service-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-link:hover {
+            gap: 12px;
+            color: var(--accent-dark);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 0;
+            background: var(--bg-primary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px var(--shadow-color);
+        }
+
+        .portfolio-image {
+            height: 200px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0,0,0,0.1) 0%, transparent 100%);
+        }
+
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .portfolio-content p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .portfolio-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(0, 74, 153, 0.1);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .portfolio-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-link:hover {
+            gap: 12px;
+            color: var(--accent-dark);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            counter-reset: step-counter;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border-color);
+            z-index: 1;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 74, 153, 0.3);
+            position: relative;
+        }
+
+        .step-number::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--bg-primary);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 5rem;
+            color: var(--accent);
+            font-weight: 700;
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button.white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta-button.white:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-dark);
+        }
+
+        .cta-button.outline {
             background: transparent;
-            border: 1px solid var(--neon-blue);
-            color: var(--neon-blue);
+            color: white;
+            border: 2px solid white;
         }
 
-        .modal-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        .cta-button.outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 80px 0 30px;
+            color: var(--text-primary);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .footer-section p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            gap: 12px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient-accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(242, 92, 5, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(242, 92, 5, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-content {
+                gap: 40px;
+            }
         }
 
         @media (max-width: 768px) {
-            .modal-content {
-                width: 95%;
-                margin: 2% auto;
-                max-height: 95vh;
-                border-radius: 1rem;
-            }
-            
-            .modal-header {
-                padding: 1rem;
-                border-radius: 1rem 1rem 0 0;
-            }
-            
-            .modal-title {
-                font-size: 1.4rem;
-            }
-            
-            .modal-subtitle {
-                font-size: 0.9rem;
-            }
-            
-            .modal-body {
-                padding: 1rem;
-            }
-            
-            .modal-image {
-                height: 200px;
-                margin-bottom: 1rem;
-            }
-            
-            .modal-description {
-                font-size: 1rem;
-                line-height: 1.6;
-                margin-bottom: 1.5rem;
-            }
-            
-            .modal-features h3,
-            .modal-tech h3 {
-                font-size: 1.1rem;
-                margin-bottom: 0.8rem;
-            }
-            
-            .feature-list li {
-                padding: 0.4rem 0;
-                font-size: 0.9rem;
-            }
-            
-            .modal-stats {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .stat-item {
-                padding: 0.8rem;
-            }
-            
-            .stat-value {
-                font-size: 1.3rem;
-            }
-            
-            .stat-label {
-                font-size: 0.8rem;
-            }
-            
-            .tech-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 0.4rem;
-            }
-            
-            .tech-item {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-            
-            .modal-actions {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
                 flex-direction: column;
-                gap: 0.8rem;
-                margin-top: 1.5rem;
+                padding: 20px;
+                box-shadow: 0 10px 30px var(--shadow-color);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 999;
             }
             
-            .modal-btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
             }
             
-            .modal-close {
-                width: 35px;
-                height: 35px;
-                top: 0.8rem;
-                right: 0.8rem;
-                font-size: 1rem;
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text {
+                max-width: 100%;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+            
+            .hero-visual {
+                order: -1;
+            }
+            
+            .hero-visual-content {
+                height: 300px;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .services-grid,
+            .portfolio-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-steps::before {
+                display: none;
             }
         }
 
         @media (max-width: 480px) {
-            .modal-content {
-                width: 98%;
-                margin: 1% auto;
-                max-height: 98vh;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            .modal-header {
-                padding: 0.8rem;
+            .hero .subtitle {
+                font-size: 1.1rem;
             }
             
-            .modal-title {
-                font-size: 1.2rem;
+            .cta-button {
+                padding: 14px 30px;
             }
             
-            .modal-body {
-                padding: 0.8rem;
+            .section-title {
+                font-size: 2rem;
             }
             
-            .modal-image {
-                height: 150px;
+            .service-card {
+                padding: 30px 20px;
             }
             
-            .modal-description {
-                font-size: 0.9rem;
+            .footer-content {
+                grid-template-columns: 1fr;
             }
-            
-            .tech-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            }
-            
-            .modal-close {
-                width: 30px;
-                height: 30px;
-                top: 0.5rem;
-                right: 0.5rem;
-            }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .carousel-button {
-                width: 40px;
-                height: 40px;
-            }
-
-            .carousel-button.prev {
-                left: 5px;
-            }
-
-            .carousel-button.next {
-                right: 5px;
-            }
-
-            .carousel-card {
-                min-width: 260px;
-                max-width: 260px;
-                margin: 0 15px;
-            }
-
-            .carousel-card:not(.is-active) {
-                transform: scale(0.85) rotateY(25deg);
-            }
-
-            .carousel-card.is-prev {
-                transform: scale(0.8) rotateY(30deg) translateX(-40px);
-            }
-
-            .carousel-card.is-next {
-                transform: scale(0.8) rotateY(-30deg) translateX(40px);
-            }
-
-            .card-image-container {
-                height: 160px;
-            }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slideRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes bounceIn {
-            0% { opacity: 0; transform: scale(0.3); }
-            50% { opacity: 1; transform: scale(1.05); }
-            70% { transform: scale(0.9); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        @keyframes glow {
-            from { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
-            to { box-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 40px rgba(59, 130, 246, 0.3); }
-        }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        @keyframes rotateSlow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        @keyframes scalePulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        .text-gradient {
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .bg-gradient-animated {
-            background: linear-gradient(-45deg, #3b82f6, #1d4ed8, #8b5cf6, #ec4899, #f59e0b, #10b981);
-            background-size: 400% 400%;
-            animation: gradientShift 20s ease infinite;
-        }
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen">
+<body>
     <!-- Header -->
-    <header class="fixed w-full top-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-700">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold text-white">
-                    <i class="fas fa-robot mr-2 text-blue-400"></i>
-                    AI Solutions
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="TrustSolution Logo">
+                TrustSolution
+            </a>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#portfolio">Портфолио</a></li>
+                    <li><a href="#process">Процесс</a></li>
+                    <li><a href="#testimonials">Отзывы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-controls">
+                <div class="theme-switcher">
+                    <button class="theme-btn" id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="hover:text-blue-400 transition-colors">Главная</a>
-                    <a href="#services" class="hover:text-blue-400 transition-colors">Услуги</a>
-                    <a href="#portfolio" class="hover:text-blue-400 transition-colors">Портфолио</a>
-                    <a href="#about" class="hover:text-blue-400 transition-colors">Обо мне</a>
-                    <a href="#contact" class="hover:text-blue-400 transition-colors">Контакты</a>
-                </div>
-                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars text-xl" id="menu-icon"></i>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
                 </button>
-            </div>
-        </nav>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden bg-gray-900 border-t border-gray-700 hidden">
-            <div class="px-6 py-4 space-y-4">
-                <a href="#home" class="block hover:text-blue-400 transition-colors" onclick="closeMobileMenu()">Главная</a>
-                <a href="#services" class="block hover:text-blue-400 transition-colors" onclick="closeMobileMenu()">Услуги</a>
-                <a href="#portfolio" class="block hover:text-blue-400 transition-colors" onclick="closeMobileMenu()">Портфолио</a>
-                <a href="#about" class="block hover:text-blue-400 transition-colors" onclick="closeMobileMenu()">Обо мне</a>
-                <a href="#contact" class="block hover:text-blue-400 transition-colors" onclick="closeMobileMenu()">Контакты</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-20 bg-gradient-animated min-h-screen flex items-center relative overflow-hidden">
-        <!-- Animated background elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-slate-600/15 to-slate-500/15 rounded-full animate-rotate-slow"></div>
-            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-gray-600/15 to-slate-600/15 rounded-full animate-rotate-slow" style="animation-delay: -10s; animation-direction: reverse;"></div>
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-slate-500/8 to-gray-500/8 rounded-full animate-scale-pulse"></div>
-            <div class="absolute top-1/4 right-1/4 w-32 h-32 bg-gradient-to-br from-slate-400/12 to-gray-400/12 rounded-full animate-float"></div>
-            <div class="absolute bottom-1/4 left-1/4 w-24 h-24 bg-gradient-to-br from-gray-500/12 to-slate-500/12 rounded-full animate-float" style="animation-delay: -2s;"></div>
-        </div>
-        
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <div class="animate-fade-in">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6">
-                    Ваши идеи — <span class="text-gradient animate-shimmer relative overflow-hidden">мои решения!</span>
-                </h1>
-                <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
-                    Автоматизация, ИИ и креатив для вашего бизнеса! 
-                    Создаю чат-боты, генерирую контент и настраиваю интеграции.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-bounce-in" style="animation-delay: 0.4s;">
-                    <button onclick="scrollToSection('contact')" 
-                            class="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:from-yellow-300 hover:to-orange-400 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 relative overflow-hidden group">
-                        <span class="relative z-10"><i class="fas fa-rocket mr-2"></i>Давайте обсудим ваш проект!</span>
-                        <div class="absolute inset-0 bg-gradient-to-r from-yellow-300 to-orange-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                    </button>
-                    <button onclick="scrollToSection('services')" 
-                            class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 hover:scale-105 relative overflow-hidden group">
-                        <span class="relative z-10"><i class="fas fa-cogs mr-2"></i>Посмотреть услуги</span>
-                        <div class="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                    </button>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">AI решения для вашего бизнеса</span>
+                <h1>Превращаем идеи в <span>интеллектуальные решения</span></h1>
+                <p class="subtitle">Создаем чат-боты, генерируем контент и автоматизируем процессы с помощью искусственного интеллекта для роста вашего бизнеса</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="cta-button">
+                        Обсудить проект
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#portfolio" class="cta-button secondary">
+                        Смотреть работы
+                        <i class="fas fa-eye"></i>
+                    </a>
                 </div>
-                
-                <!-- Trust indicators -->
-                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                    <div class="text-center hover-lift animate-slide-left" style="animation-delay: 0.6s;">
-                        <div class="text-3xl font-bold text-yellow-400 mb-2 animate-scale-pulse">50+</div>
-                        <div class="text-gray-300">Проектов выполнено</div>
-                    </div>
-                    <div class="text-center hover-lift animate-slide-up" style="animation-delay: 0.8s;">
-                        <div class="text-3xl font-bold text-yellow-400 mb-2 animate-scale-pulse">24/7</div>
-                        <div class="text-gray-300">Поддержка клиентов</div>
-                    </div>
-                    <div class="text-center hover-lift animate-slide-right" style="animation-delay: 1s;">
-                        <div class="text-3xl font-bold text-yellow-400 mb-2 animate-scale-pulse">100%</div>
-                        <div class="text-gray-300">Гарантия качества</div>
-                    </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-visual-content">
+                    <i class="fas fa-robot"></i>
+                    <div class="floating-element"><i class="fas fa-comment"></i></div>
+                    <div class="floating-element"><i class="fas fa-image"></i></div>
+                    <div class="floating-element"><i class="fas fa-cogs"></i></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Мои услуги</h2>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                    Полный спектр решений для автоматизации и цифровизации вашего бизнеса
-                </p>
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Наши услуги</h2>
+                <p class="section-subtitle">Мы предлагаем полный спектр услуг по разработке AI-решений для вашего бизнеса</p>
             </div>
             
-            <div id="services-container"></div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">Примеры моих работ</h2>
-                <p class="text-xl text-gray-300 animate-slide-up" style="animation-delay: 0.2s;">
-                    Реальные проекты, которые помогли бизнесу расти и развиваться
-                </p>
-            </div>
-            
-            <!-- Modern Carousel Container -->
-            <div class="w-full max-w-6xl mx-auto">
-                <div class="carousel-wrapper">
-                    <div class="carousel-container">
-                        <div class="carousel-content" id="carousel-content">
-                            <!-- Project 1 - Chatbot -->
-                            <div class="carousel-item">
-                                <div class="p-1">
-                                    <div class="project-card">
-                                        <div class="project-image">
-                                            <div class="bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-6xl">
-                                                🤖
-                                            </div>
-                                        </div>
-                                        <div class="project-content">
-                                            <h3 class="project-title">Telegram Bot</h3>
-                                            <p class="project-description">Автоматизация заказов, обработка платежей, интеграция с CRM</p>
-                                            <div class="project-stats">
-                                                <span class="status completed">ЗАВЕРШЕН</span>
-                                                <span class="metric">+300% ЗАКАЗОВ</span>
-                                            </div>
-                                            <div class="project-tech">
-                                                <span class="tech-tag">Python</span>
-                                                <span class="tech-tag">Telegram API</span>
-                                                <span class="tech-tag">PostgreSQL</span>
-                                            </div>
-                                            <button class="project-btn" onclick="openModal('telegram-bot')">
-                                                <i class="fas fa-info-circle mr-2"></i>Подробнее
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Project 2 - AI Content Generation -->
-                            <div class="carousel-item">
-                                <div class="p-1">
-                                    <div class="project-card">
-                                        <div class="project-image">
-                                            <div class="bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center text-6xl">
-                                                🎨
-                                            </div>
-                                        </div>
-                                        <div class="project-content">
-                                            <h3 class="project-title">AI Creative</h3>
-                                            <p class="project-description">ИИ-система для создания баннеров, постеров и карточек товаров</p>
-                                            <div class="project-stats">
-                                                <span class="status completed">ЗАВЕРШЕН</span>
-                                                <span class="metric">-80% ВРЕМЕНИ</span>
-                                            </div>
-                                            <div class="project-tech">
-                                                <span class="tech-tag">DALL-E</span>
-                                                <span class="tech-tag">Midjourney</span>
-                                                <span class="tech-tag">Stable Diffusion</span>
-                                            </div>
-                                            <button class="project-btn" onclick="openModal('ai-creative')">
-                                                <i class="fas fa-info-circle mr-2"></i>Подробнее
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Project 3 - Automation -->
-                            <div class="carousel-item">
-                                <div class="p-1">
-                                    <div class="project-card">
-                                        <div class="project-image">
-                                            <div class="bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-6xl">
-                                                ⚙️
-                                            </div>
-                                        </div>
-                                        <div class="project-content">
-                                            <h3 class="project-title">Auto CRM</h3>
-                                            <p class="project-description">Интеграция с внешними API, автоматические рассылки</p>
-                                            <div class="project-stats">
-                                                <span class="status completed">ЗАВЕРШЕН</span>
-                                                <span class="metric">-60% РАБОТЫ</span>
-                                            </div>
-                                            <div class="project-tech">
-                                                <span class="tech-tag">Zapier</span>
-                                                <span class="tech-tag">Webhooks</span>
-                                                <span class="tech-tag">REST API</span>
-                                            </div>
-                                            <button class="project-btn" onclick="openModal('auto-crm')">
-                                                <i class="fas fa-info-circle mr-2"></i>Подробнее
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Project 4 - Mobile App -->
-                            <div class="carousel-item">
-                                <div class="p-1">
-                                    <div class="project-card">
-                                        <div class="project-image">
-                                            <div class="bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-6xl">
-                                                📱
-                                            </div>
-                                        </div>
-                                        <div class="project-content">
-                                            <h3 class="project-title">Mobile AI</h3>
-                                            <p class="project-description">Приложение для генерации контента с голосовым управлением</p>
-                                            <div class="project-stats">
-                                                <span class="status development">РАЗРАБОТКА</span>
-                                                <span class="metric">65% ГОТОВО</span>
-                                            </div>
-                                            <div class="project-tech">
-                                                <span class="tech-tag">React Native</span>
-                                                <span class="tech-tag">OpenAI API</span>
-                                                <span class="tech-tag">Speech-to-Text</span>
-                                            </div>
-                                            <button class="project-btn" onclick="openModal('mobile-ai')">
-                                                <i class="fas fa-info-circle mr-2"></i>Подробнее
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Project 5 - Video Generation -->
-                            <div class="carousel-item">
-                                <div class="p-1">
-                                    <div class="project-card">
-                                        <div class="project-image">
-                                            <div class="bg-gradient-to-br from-yellow-500 to-red-500 flex items-center justify-center text-6xl">
-                                                🎬
-                                            </div>
-                                        </div>
-                                        <div class="project-content">
-                                            <h3 class="project-title">Video AI</h3>
-                                            <p class="project-description">ИИ-система для создания промо-роликов и анимаций</p>
-                                            <div class="project-stats">
-                                                <span class="status development">РАЗРАБОТКА</span>
-                                                <span class="metric">42% ГОТОВО</span>
-                                            </div>
-                                            <div class="project-tech">
-                                                <span class="tech-tag">Runway ML</span>
-                                                <span class="tech-tag">After Effects</span>
-                                                <span class="tech-tag">FFmpeg</span>
-                                            </div>
-                                            <button class="project-btn" onclick="openModal('video-ai')">
-                                                <i class="fas fa-info-circle mr-2"></i>Подробнее
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Project 6 - Web Assistant -->
-                            <div class="carousel-item">
-                                <div class="p-1">
-                                    <div class="project-card">
-                                        <div class="project-image">
-                                            <div class="bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-6xl">
-                                                🌐
-                                            </div>
-                                        </div>
-                                        <div class="project-content">
-                                            <h3 class="project-title">Web AI</h3>
-                                            <p class="project-description">Умный чат-бот с интеграцией в веб-сайт</p>
-                                            <div class="project-stats">
-                                                <span class="status development">РАЗРАБОТКА</span>
-                                                <span class="metric">78% ГОТОВО</span>
-                                            </div>
-                                            <div class="project-tech">
-                                                <span class="tech-tag">JavaScript</span>
-                                                <span class="tech-tag">WebSocket</span>
-                                                <span class="tech-tag">GPT-4</span>
-                                            </div>
-                                            <button class="project-btn" onclick="openModal('web-ai')">
-                                                <i class="fas fa-info-circle mr-2"></i>Подробнее
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Navigation Buttons -->
-                        <button class="carousel-prev" id="carousel-prev">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                            </svg>
-                        </button>
-                        <button class="carousel-next" id="carousel-next">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </button>
+            <div class="services-grid">
+                <div class="service-card slide-in-left">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
                     </div>
+                    <h3>Чат-боты</h3>
+                    <p>Создаем интеллектуальных чат-ботов для автоматизации коммуникации с клиентами и решения бизнес-задач.</p>
+                    <ul class="service-features">
+                        <li>Разработка Telegram-ботов (Q&A, поддержка клиентов)</li>
+                        <li>Интеграции с CRM и сайтами</li>
+                        <li>Настройка ботов для сайта</li>
+                        <li>Интеграция ботов с нейросетями</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        Заказать разработку
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-            </div>
-
-            <!-- Portfolio CTA -->
-            <div class="text-center mt-16 animate-fade-in" style="animation-delay: 0.5s;">
-                <h3 class="text-2xl font-bold mb-4">Хотите увидеть больше проектов?</h3>
-                <p class="text-gray-300 mb-6">Свяжитесь со мной, чтобы обсудить ваш проект и посмотреть дополнительные примеры работ</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="scrollToSection('contact')" 
-                            class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
-                        <i class="fas fa-envelope mr-2"></i>Обсудить проект
-                    </button>
-                    <a href="https://t.me/ai_solutions_work" target="_blank" 
-                       class="bg-transparent border-2 border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
-                        <i class="fab fa-telegram mr-2"></i>Написать в Telegram
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Генерация изображений и медиа</h3>
+                    <p>Создаем визуальный контент с помощью AI: от иллюстраций до промо-роликов.</p>
+                    <ul class="service-features">
+                        <li>Создание иллюстраций, баннеров, логотипов</li>
+                        <li>Генерация рекламных креативов</li>
+                        <li>Доработка изображений (удаление фона, улучшение качества)</li>
+                        <li>Генерация видео и анимаций</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        Заказать контент
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card slide-in-right">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Работа с текстами</h3>
+                    <p>Генерируем и оптимизируем текстовый контент с помощью нейросетей для любых целей.</p>
+                    <ul class="service-features">
+                        <li>Написание рекламных текстов (слоганы, продающие описания)</li>
+                        <li>Генерация диалогов, сценариев, email-рассылок</li>
+                        <li>Рерайтинг и корректура текстов через нейросети</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        Заказать тексты
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card slide-in-left">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Автоматизация и интеграции</h3>
+                    <p>Настраиваем автоматизацию бизнес-процессов и интегрируем различные системы.</p>
+                    <ul class="service-features">
+                        <li>Подключение внешних API (CRM, базы данных, платёжки)</li>
+                        <li>Настройка автоматических рассылок</li>
+                        <li>Интеграция чат-ботов и ИИ в лендинги/сайты</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        Заказать интеграцию
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>Документы и презентации</h3>
+                    <p>Создаем профессиональные документы и презентации с помощью AI-технологий.</p>
+                    <ul class="service-features">
+                        <li>Генерация презентаций</li>
+                        <li>Автоматическое составление отчетов, таблиц, резюме</li>
+                        <li>Подготовка PDF, DOCX и других форматов «под ключ»</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        Заказать документы
+                        <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-gray-700">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Отзывы клиентов</h2>
-                <p class="text-xl text-gray-300">Что говорят о моей работе</p>
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Наши работы</h2>
+                <p class="section-subtitle">Примеры реализованных проектов и успешных кейсов</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-gray-800 p-6 rounded-lg hover-lift animate-slide-left">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4 animate-pulse-slow">
-                            А
-                        </div>
-                        <div>
-                            <div class="font-semibold">Александр М.</div>
-                            <div class="text-gray-400 text-sm">Владелец интернет-магазина</div>
-                        </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item scale-in">
+                    <div class="portfolio-image">
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <p class="text-gray-300">"Отличный чат-бот для нашего магазина! Обработка заказов ускорилась в 3 раза. Рекомендую!"</p>
-                    <div class="flex text-yellow-400 mt-3">
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.1s;"></i>
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.2s;"></i>
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.3s;"></i>
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.4s;"></i>
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.5s;"></i>
-                    </div>
-                </div>
-                
-                <div class="bg-gray-800 p-6 rounded-lg hover-lift animate-slide-up">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-4 animate-pulse-slow">
-                            М
+                    <div class="portfolio-content">
+                        <h3>Telegram-бот для интернет-магазина</h3>
+                        <p>Умный бот для обработки заказов, ответов на вопросы и интеграции с CRM-системой.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Aiogram</span>
+                            <span class="tech-tag">API</span>
                         </div>
-                        <div>
-                            <div class="font-semibold">Мария К.</div>
-                            <div class="text-gray-400 text-sm">Маркетолог</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">"Генерация рекламных креативов через ИИ - это просто магия! Качество на высоте, сроки соблюдены."</p>
-                    <div class="flex text-yellow-400 mt-3">
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.1s;"></i>
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.2s;"></i>
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.3s;"></i>
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.4s;"></i>
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.5s;"></i>
+                        <a href="#" class="portfolio-link">
+                            Подробнее о проекте
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="bg-gray-800 p-6 rounded-lg hover-lift animate-slide-right">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-4 animate-pulse-slow">
-                            Д
-                        </div>
-                        <div>
-                            <div class="font-semibold">Дмитрий С.</div>
-                            <div class="text-gray-400 text-sm">Директор по развитию</div>
-                        </div>
+                <div class="portfolio-item scale-in">
+                    <div class="portfolio-image">
+                        <i class="fas fa-images"></i>
                     </div>
-                    <p class="text-gray-300">"Автоматизация CRM с интеграцией ботов - теперь у нас все процессы работают как часы!"</p>
-                    <div class="flex text-yellow-400 mt-3">
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.1s;"></i>
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.2s;"></i>
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.3s;"></i>
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.4s;"></i>
-                        <i class="fas fa-star animate-bounce-in" style="animation-delay: 0.5s;"></i>
+                    <div class="portfolio-content">
+                        <h3>Генерация креативов для рекламы</h3>
+                        <p>Создание серии рекламных баннеров и иллюстраций с помощью нейросетей для кампании в соцсетях.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Midjourney</span>
+                            <span class="tech-tag">Stable Diffusion</span>
+                            <span class="tech-tag">Photoshop</span>
+                        </div>
+                        <a href="#" class="portfolio-link">
+                            Подробнее о проекте
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item scale-in">
+                    <div class="portfolio-image">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Автоматизация email-рассылок</h3>
+                        <p>Настройка автоматической системы триггерных писем с персонализацией контента для каждого клиента.</p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">GPT-3</span>
+                            <span class="tech-tag">Mailchimp API</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <a href="#" class="portfolio-link">
+                            Подробнее о проекте
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-900">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8">Обо мне</h2>
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="text-left animate-slide-left">
-                        <p class="text-xl text-gray-300 mb-6">
-                            Опытный фрилансер, специализирующийся на автоматизации и ИИ. 
-                            Помогаю бизнесу внедрять современные технологии для повышения 
-                            эффективности и снижения операционных затрат.
-                        </p>
-                        <p class="text-lg text-gray-400 mb-6">
-                            Более 5 лет опыта в разработке решений на базе искусственного интеллекта, 
-                            создании чат-ботов и автоматизации бизнес-процессов.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <span class="bg-blue-600 px-4 py-2 rounded-full text-sm hover-lift animate-bounce-in" style="animation-delay: 0.1s;">ИИ & Машинное обучение</span>
-                            <span class="bg-green-600 px-4 py-2 rounded-full text-sm hover-lift animate-bounce-in" style="animation-delay: 0.2s;">Автоматизация</span>
-                            <span class="bg-purple-600 px-4 py-2 rounded-full text-sm hover-lift animate-bounce-in" style="animation-delay: 0.3s;">Чат-боты</span>
-                            <span class="bg-yellow-600 px-4 py-2 rounded-full text-sm hover-lift animate-bounce-in" style="animation-delay: 0.4s;">Генерация контента</span>
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Как мы работаем</h2>
+                <p class="section-subtitle">Четкий процесс разработки для достижения лучших результатов</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number"></div>
+                    <h3>Обсуждаем проект</h3>
+                    <p>Анализируем ваши цели, целевую аудиторию и задачи, которые нужно решить</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number"></div>
+                    <h3>Разрабатываем концепцию</h3>
+                    <p>Создаем прототипы и предлагаем оптимальные AI-решения для вашего бизнеса</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number"></div>
+                    <h3>Реализуем проект</h3>
+                    <p>Разрабатываем и интегрируем выбранные решения, тестируем и оптимизируем</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number"></div>
+                    <h3>Поддерживаем</h3>
+                    <p>Обеспечиваем техническую поддержку и дальнейшее развитие проекта</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Отзывы клиентов</h2>
+                <p class="section-subtitle">Что говорят о сотрудничестве с нами</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">Заказали разработку Telegram-бота для нашего интернет-магазина. Результат превзошел ожидания! Бот не только отвечает на вопросы, но и помогает оформить заказ, существенно разгрузив менеджеров.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">АС</div>
+                        <div class="author-info">
+                            <h4>Анна Смирнова</h4>
+                            <p>Директор, "StyleShop"</p>
                         </div>
                     </div>
-                    <div class="bg-gray-800 p-8 rounded-lg hover-lift animate-slide-right">
-                        <div class="text-6xl mb-4 animate-float">🤖</div>
-                        <h3 class="text-2xl font-bold mb-4">Почему выбирают меня?</h3>
-                        <ul class="text-left space-y-3">
-                            <li class="flex items-center animate-slide-up" style="animation-delay: 0.1s;">
-                                <i class="fas fa-check text-green-400 mr-3 animate-pulse-slow"></i>
-                                Индивидуальный подход к каждому проекту
-                            </li>
-                            <li class="flex items-center animate-slide-up" style="animation-delay: 0.2s;">
-                                <i class="fas fa-check text-green-400 mr-3 animate-pulse-slow"></i>
-                                Современные технологии и инструменты
-                            </li>
-                            <li class="flex items-center animate-slide-up" style="animation-delay: 0.3s;">
-                                <i class="fas fa-check text-green-400 mr-3 animate-pulse-slow"></i>
-                                Быстрая реализация и поддержка
-                            </li>
-                            <li class="flex items-center animate-slide-up" style="animation-delay: 0.4s;">
-                                <i class="fas fa-check text-green-400 mr-3 animate-pulse-slow"></i>
-                                Конкурентные цены
-                            </li>
-                        </ul>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">TrustSolution создали для нас серию рекламных креативов с помощью нейросетей. Подход к работе профессиональный, креативы получились яркие и эффективные — CTR вырос на 35%.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">МК</div>
+                        <div class="author-info">
+                            <h4>Михаил Козлов</h4>
+                            <p>Маркетолог, "TechGadgets"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">Настроили автоматизацию документооборота в нашей компании. Система сама генерирует отчеты, готовит коммерческие предложения и ведет базу клиентов. Экономия времени колоссальная!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ЕП</div>
+                        <div class="author-info">
+                            <h4>Елена Петрова</h4>
+                            <p>CEO, "БизнесКонсалт"</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1235,968 +1477,161 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
-        <!-- Animated background elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute -top-20 -right-20 w-40 h-40 bg-white/10 rounded-full animate-float"></div>
-            <div class="absolute -bottom-20 -left-20 w-32 h-32 bg-white/10 rounded-full animate-float" style="animation-delay: -2s;"></div>
-            <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-white/5 rounded-full animate-pulse-slow"></div>
-            <div class="absolute top-1/4 right-1/4 w-16 h-16 bg-white/10 rounded-full animate-float" style="animation-delay: -4s;"></div>
-        </div>
-        
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">Готовы начать проект?</h2>
-            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
-                Получите бесплатную консультацию и узнайте, как ИИ может помочь вашему бизнесу
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-bounce-in" style="animation-delay: 0.4s;">
-                <button onclick="scrollToSection('contact')" 
-                        class="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 animate-glow">
-                    <i class="fas fa-phone mr-2"></i>Бесплатная консультация
-                </button>
-                <a href="https://t.me/ai_solutions_work" target="_blank" 
-                   class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 hover:scale-105">
-                    <i class="fab fa-telegram mr-2"></i>Написать в Telegram
+    <section class="cta-section" id="contact">
+        <div class="cta-content">
+            <h2 class="cta-title fade-in">Готовы создать AI-решение для вашего бизнеса?</h2>
+            <p class="cta-text fade-in">Оставьте заявку и мы обсудим ваш проект в течение 24 часов</p>
+            <div class="cta-buttons">
+                <a href="#contact-form" class="cta-button white fade-in">
+                    Обсудить проект
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="mailto:info@trustsolution.ru" class="cta-button outline fade-in">
+                    Написать на почту
+                    <i class="fas fa-envelope"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">Свяжитесь со мной</h2>
-                    <p class="text-xl text-gray-300 animate-slide-up" style="animation-delay: 0.2s;">
-                        Готов обсудить ваш проект и предложить оптимальное решение
-                    </p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TrustSolution</h3>
+                    <p>Создаем интеллектуальные решения с использованием искусственного интеллекта для роста вашего бизнеса.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="animate-slide-left">
-                        <h3 class="text-2xl font-bold mb-6">Контактная информация</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <i class="fas fa-envelope text-blue-400 mr-4 text-xl"></i>
-                                <a href="mailto:ai.solutions.work@gmail.com" class="hover:text-blue-400 transition-colors">ai.solutions.work@gmail.com</a>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fab fa-telegram text-blue-400 mr-4 text-xl"></i>
-                                <a href="https://t.me/ai_solutions_work" target="_blank" class="hover:text-blue-400 transition-colors">@ai_solutions_work</a>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fab fa-whatsapp text-green-400 mr-4 text-xl"></i>
-                                <a href="https://wa.me/79991234567" target="_blank" class="hover:text-green-400 transition-colors">+7 (999) 123-45-67</a>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-clock text-yellow-400 mr-4 text-xl"></i>
-                                <span>Пн-Пт: 9:00 - 18:00 (МСК)</span>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-8">
-                            <h4 class="text-xl font-bold mb-4">Социальные сети</h4>
-                            <div class="flex space-x-4">
-                                <a href="https://t.me/ai_solutions_work" target="_blank" class="bg-blue-600 p-3 rounded-full hover:bg-blue-700 transition-colors" title="Telegram">
-                                    <i class="fab fa-telegram"></i>
-                                </a>
-                                <a href="https://github.com/ai-solutions-work" target="_blank" class="bg-gray-600 p-3 rounded-full hover:bg-gray-700 transition-colors" title="GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://linkedin.com/in/ai-solutions-work" target="_blank" class="bg-blue-800 p-3 rounded-full hover:bg-blue-900 transition-colors" title="LinkedIn">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <a href="https://vk.com/ai_solutions_work" target="_blank" class="bg-blue-500 p-3 rounded-full hover:bg-blue-600 transition-colors" title="VKontakte">
-                                    <i class="fab fa-vk"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="animate-slide-right">
-                        <h3 class="text-2xl font-bold mb-6">Напишите мне</h3>
-                        <div class="space-y-4">
-                            <input type="text" id="name" placeholder="Ваше имя" 
-                                   class="w-full p-4 bg-gray-700 border border-gray-600 rounded-lg focus:border-blue-400 focus:outline-none transition-all duration-300 hover:border-blue-300">
-                            <input type="email" id="email" placeholder="Email" 
-                                   class="w-full p-4 bg-gray-700 border border-gray-600 rounded-lg focus:border-blue-400 focus:outline-none transition-all duration-300 hover:border-blue-300">
-                            <textarea id="message" rows="5" placeholder="Сообщение" 
-                                      class="w-full p-4 bg-gray-700 border border-gray-600 rounded-lg focus:border-blue-400 focus:outline-none transition-all duration-300 hover:border-blue-300"></textarea>
-                            <button onclick="sendMessage()" 
-                                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                                <i class="fas fa-paper-plane mr-2"></i>Отправить сообщение
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" onclick="scrollToTop()" 
-            class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Modal Windows -->
-    <!-- Telegram Bot Modal -->
-    <div id="telegram-bot-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Telegram Bot для интернет-магазина</h2>
-                <p class="modal-subtitle">Умный помощник для автоматизации заказов</p>
-                <button class="modal-close" onclick="closeModal('telegram-bot')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-8xl">
-                    🤖
-                </div>
-                <div class="modal-description">
-                    Разработал полнофункционального Telegram-бота для интернет-магазина, который автоматизирует процесс заказов, обработки платежей и интеграции с CRM-системой. Бот обеспечивает круглосуточную поддержку клиентов и значительно увеличивает конверсию.
-                </div>
-                <div class="modal-features">
-                    <h3>Основные возможности:</h3>
-                    <ul class="feature-list">
-                        <li>Автоматическая обработка заказов 24/7</li>
-                        <li>Интеграция с платежными системами</li>
-                        <li>Синхронизация с CRM и складскими системами</li>
-                        <li>Умные уведомления о статусе заказа</li>
-                        <li>Система лояльности и скидок</li>
-                        <li>Аналитика и отчетность</li>
+                <div class="footer-section">
+                    <h3>Услуги</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Чат-боты</a></li>
+                        <li><a href="#services">Генерация изображений</a></li>
+                        <li><a href="#services">Работа с текстами</a></li>
+                        <li><a href="#services">Автоматизация</a></li>
+                        <li><a href="#services">Документы и презентации</a></li>
                     </ul>
                 </div>
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">+300%</div>
-                        <div class="stat-label">Рост заказов</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">24/7</div>
-                        <div class="stat-label">Поддержка клиентов</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">95%</div>
-                        <div class="stat-label">Автоматизация</div>
-                    </div>
-                </div>
-                <div class="modal-tech">
-                    <h3>Технологии:</h3>
-                    <div class="tech-grid">
-                        <div class="tech-item">Python</div>
-                        <div class="tech-item">Telegram API</div>
-                        <div class="tech-item">PostgreSQL</div>
-                        <div class="tech-item">Redis</div>
-                        <div class="tech-item">Docker</div>
-                        <div class="tech-item">Webhooks</div>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button class="modal-btn modal-btn-primary" onclick="scrollToSection('contact')">Обсудить проект</button>
-                    <a href="https://t.me/ai_solutions_work" target="_blank" class="modal-btn modal-btn-secondary">Написать в Telegram</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- AI Creative Modal -->
-    <div id="ai-creative-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">AI Creative - Генерация контента</h2>
-                <p class="modal-subtitle">ИИ-система для создания визуального контента</p>
-                <button class="modal-close" onclick="closeModal('ai-creative')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center text-8xl">
-                    🎨
-                </div>
-                <div class="modal-description">
-                    Создал комплексную ИИ-систему для автоматической генерации рекламных креативов, баннеров, постеров и карточек товаров. Система использует передовые нейросети для создания уникального контента в реальном времени.
-                </div>
-                <div class="modal-features">
-                    <h3>Возможности системы:</h3>
-                    <ul class="feature-list">
-                        <li>Генерация баннеров и постеров</li>
-                        <li>Создание карточек товаров</li>
-                        <li>Автоматическая адаптация под бренд</li>
-                        <li>Пакетная обработка изображений</li>
-                        <li>A/B тестирование креативов</li>
-                        <li>Интеграция с рекламными платформами</li>
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@trustsolution.ru"><i class="fas fa-envelope"></i> info@trustsolution.ru</a></li>
+                        <li><a href="tel:+78001234567"><i class="fas fa-phone"></i> +7 (800) 123-45-67</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Москва, ул. Примерная, 15</a></li>
                     </ul>
                 </div>
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">-80%</div>
-                        <div class="stat-label">Время создания</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">1000+</div>
-                        <div class="stat-label">Креативов в день</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">40%</div>
-                        <div class="stat-label">Рост CTR</div>
-                    </div>
-                </div>
-                <div class="modal-tech">
-                    <h3>Технологии:</h3>
-                    <div class="tech-grid">
-                        <div class="tech-item">DALL-E 3</div>
-                        <div class="tech-item">Midjourney</div>
-                        <div class="tech-item">Stable Diffusion</div>
-                        <div class="tech-item">Python</div>
-                        <div class="tech-item">OpenCV</div>
-                        <div class="tech-item">FastAPI</div>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button class="modal-btn modal-btn-primary" onclick="scrollToSection('contact')">Обсудить проект</button>
-                    <a href="https://t.me/ai_solutions_work" target="_blank" class="modal-btn modal-btn-secondary">Написать в Telegram</a>
-                </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Auto CRM Modal -->
-    <div id="auto-crm-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Auto CRM - Автоматизация процессов</h2>
-                <p class="modal-subtitle">Полная автоматизация бизнес-процессов</p>
-                <button class="modal-close" onclick="closeModal('auto-crm')">&times;</button>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 TrustSolution. Все права защищены.</p>
             </div>
-            <div class="modal-body">
-                <div class="modal-image bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-8xl">
-                    ⚙️
-                </div>
-                <div class="modal-description">
-                    Разработал систему автоматизации CRM с интеграцией внешних API, настройкой автоматических рассылок и синхронизацией данных между различными платформами. Система значительно сократила ручную работу и повысила эффективность.
-                </div>
-                <div class="modal-features">
-                    <h3>Функциональность:</h3>
-                    <ul class="feature-list">
-                        <li>Автоматические email и SMS рассылки</li>
-                        <li>Синхронизация с внешними API</li>
-                        <li>Автоматическое создание задач</li>
-                        <li>Интеграция с соцсетями</li>
-                        <li>Аналитика и отчеты</li>
-                        <li>Webhook уведомления</li>
-                    </ul>
-                </div>
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">-60%</div>
-                        <div class="stat-label">Ручной работы</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">50+</div>
-                        <div class="stat-label">Интеграций</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">99.9%</div>
-                        <div class="stat-label">Uptime</div>
-                    </div>
-                </div>
-                <div class="modal-tech">
-                    <h3>Технологии:</h3>
-                    <div class="tech-grid">
-                        <div class="tech-item">Zapier</div>
-                        <div class="tech-item">Webhooks</div>
-                        <div class="tech-item">REST API</div>
-                        <div class="tech-item">Node.js</div>
-                        <div class="tech-item">MongoDB</div>
-                        <div class="tech-item">AWS</div>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button class="modal-btn modal-btn-primary" onclick="scrollToSection('contact')">Обсудить проект</button>
-                    <a href="https://t.me/ai_solutions_work" target="_blank" class="modal-btn modal-btn-secondary">Написать в Telegram</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mobile AI Modal -->
-    <div id="mobile-ai-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Mobile AI - Мобильное приложение</h2>
-                <p class="modal-subtitle">ИИ-ассистент в кармане</p>
-                <button class="modal-close" onclick="closeModal('mobile-ai')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center text-8xl">
-                    📱
-                </div>
-                <div class="modal-description">
-                    Разрабатываю мобильное приложение с ИИ для генерации контента с голосовым управлением. Приложение позволит пользователям создавать тексты, изображения и видео прямо со смартфона, используя голосовые команды.
-                </div>
-                <div class="modal-features">
-                    <h3>Планируемые функции:</h3>
-                    <ul class="feature-list">
-                        <li>Голосовое управление</li>
-                        <li>Генерация текстов и изображений</li>
-                        <li>Создание коротких видео</li>
-                        <li>Офлайн режим работы</li>
-                        <li>Синхронизация с облаком</li>
-                        <li>Многопользовательский режим</li>
-                    </ul>
-                </div>
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">65%</div>
-                        <div class="stat-label">Готовность</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">Q2 2024</div>
-                        <div class="stat-label">Планируемый релиз</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">iOS/Android</div>
-                        <div class="stat-label">Платформы</div>
-                    </div>
-                </div>
-                <div class="modal-tech">
-                    <h3>Технологии:</h3>
-                    <div class="tech-grid">
-                        <div class="tech-item">React Native</div>
-                        <div class="tech-item">OpenAI API</div>
-                        <div class="tech-item">Speech-to-Text</div>
-                        <div class="tech-item">Firebase</div>
-                        <div class="tech-item">TensorFlow Lite</div>
-                        <div class="tech-item">Expo</div>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button class="modal-btn modal-btn-primary" onclick="scrollToSection('contact')">Обсудить проект</button>
-                    <a href="https://t.me/ai_solutions_work" target="_blank" class="modal-btn modal-btn-secondary">Написать в Telegram</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Video AI Modal -->
-    <div id="video-ai-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Video AI - Генерация видео</h2>
-                <p class="modal-subtitle">ИИ для создания видео контента</p>
-                <button class="modal-close" onclick="closeModal('video-ai')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image bg-gradient-to-br from-yellow-500 to-red-500 flex items-center justify-center text-8xl">
-                    🎬
-                </div>
-                <div class="modal-description">
-                    Создаю ИИ-систему для автоматической генерации промо-роликов, анимаций и коротких видео. Система будет использовать передовые алгоритмы машинного обучения для создания качественного видео контента.
-                </div>
-                <div class="modal-features">
-                    <h3>Возможности системы:</h3>
-                    <ul class="feature-list">
-                        <li>Генерация промо-роликов</li>
-                        <li>Создание анимаций</li>
-                        <li>Автоматический монтаж</li>
-                        <li>Добавление музыки и звуков</li>
-                        <li>Создание субтитров</li>
-                        <li>Экспорт в различные форматы</li>
-                    </ul>
-                </div>
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">42%</div>
-                        <div class="stat-label">Готовность</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">Q3 2024</div>
-                        <div class="stat-label">Планируемый релиз</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">4K</div>
-                        <div class="stat-label">Максимальное качество</div>
-                    </div>
-                </div>
-                <div class="modal-tech">
-                    <h3>Технологии:</h3>
-                    <div class="tech-grid">
-                        <div class="tech-item">Runway ML</div>
-                        <div class="tech-item">After Effects</div>
-                        <div class="tech-item">FFmpeg</div>
-                        <div class="tech-item">Python</div>
-                        <div class="tech-item">OpenCV</div>
-                        <div class="tech-item">CUDA</div>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button class="modal-btn modal-btn-primary" onclick="scrollToSection('contact')">Обсудить проект</button>
-                    <a href="https://t.me/ai_solutions_work" target="_blank" class="modal-btn modal-btn-secondary">Написать в Telegram</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Web AI Modal -->
-    <div id="web-ai-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Web AI - Веб-ассистент</h2>
-                <p class="modal-subtitle">Умный чат-бот для сайтов</p>
-                <button class="modal-close" onclick="closeModal('web-ai')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-8xl">
-                    🌐
-                </div>
-                <div class="modal-description">
-                    Разрабатываю интеллектуального веб-ассистента с интеграцией в любые сайты. Бот использует GPT-4 для понимания контекста и предоставления персонализированной поддержки клиентов.
-                </div>
-                <div class="modal-features">
-                    <h3>Функции ассистента:</h3>
-                    <ul class="feature-list">
-                        <li>Понимание естественного языка</li>
-                        <li>Интеграция с любыми сайтами</li>
-                        <li>Обучение на данных компании</li>
-                        <li>Многоканальная поддержка</li>
-                        <li>Аналитика диалогов</li>
-                        <li>Передача сложных вопросов человеку</li>
-                    </ul>
-                </div>
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">78%</div>
-                        <div class="stat-label">Готовность</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">Q1 2024</div>
-                        <div class="stat-label">Планируемый релиз</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">95%</div>
-                        <div class="stat-label">Точность ответов</div>
-                    </div>
-                </div>
-                <div class="modal-tech">
-                    <h3>Технологии:</h3>
-                    <div class="tech-grid">
-                        <div class="tech-item">JavaScript</div>
-                        <div class="tech-item">WebSocket</div>
-                        <div class="tech-item">GPT-4</div>
-                        <div class="tech-item">Node.js</div>
-                        <div class="tech-item">MongoDB</div>
-                        <div class="tech-item">Redis</div>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button class="modal-btn modal-btn-primary" onclick="scrollToSection('contact')">Обсудить проект</button>
-                    <a href="https://t.me/ai_solutions_work" target="_blank" class="modal-btn modal-btn-secondary">Написать в Telegram</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-8 border-t border-gray-700">
-        <div class="container mx-auto px-6">
-                <div class="text-center">
-                    <p class="text-gray-400">&copy; 2024 AI Solutions. Все права защищены.</p>
-                    <p class="text-gray-500 text-sm mt-2">
-                        <a href="mailto:ai.solutions.work@gmail.com" class="hover:text-blue-400 transition-colors">ai.solutions.work@gmail.com</a> | 
-                        <a href="https://t.me/ai_solutions_work" target="_blank" class="hover:text-blue-400 transition-colors">@ai_solutions_work</a>
-                    </p>
-                </div>
         </div>
     </footer>
 
-    <script type="text/babel">
-        const { useState } = React;
-
-        const ServiceCard = ({ icon, title, description, services }) => {
-            const [isExpanded, setIsExpanded] = useState(false);
-
-            return (
-                <div className="service-card bg-gray-700 rounded-lg p-6 mb-6">
-                    <div 
-                        className="flex items-center justify-between cursor-pointer"
-                        onClick={() => setIsExpanded(!isExpanded)}
-                    >
-                        <div className="flex items-center">
-                            <div className="text-3xl mr-4 text-blue-400">
-                                {icon}
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-bold mb-2">{title}</h3>
-                                <p className="text-gray-300">{description}</p>
-                            </div>
-                        </div>
-                        <i className={`fas fa-chevron-down text-xl transition-transform ${isExpanded ? 'rotate-180' : ''}`}></i>
-                    </div>
-                    
-                    {isExpanded && (
-                        <div className="mt-6 pt-6 border-t border-gray-600">
-                            <ul className="space-y-3">
-                                {services.map((service, index) => (
-                                    <li key={index} className="flex items-start">
-                                        <i className="fas fa-check text-green-400 mr-3 mt-1"></i>
-                                        <span className="text-gray-300">{service}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
-                </div>
-            );
-        };
-
-        const ServicesContainer = () => {
-            const servicesData = [
-                {
-                    icon: "🤖",
-                    title: "Чат-боты",
-                    description: "Умные помощники для вашего бизнеса",
-                    services: [
-                        "Разработка Telegram-ботов (Q&A, поддержка клиентов, интеграции с CRM/сайтами)",
-                        "Настройка ботов для сайта",
-                        "Интеграция ботов с нейросетями"
-                    ]
-                },
-                {
-                    icon: "🎨",
-                    title: "Генерация изображений и медиа",
-                    description: "Создание визуального контента с помощью ИИ",
-                    services: [
-                        "Создание иллюстраций, баннеров, логотипов",
-                        "Генерация рекламных креативов (баннеры, постеры, карточки товаров)",
-                        "Доработка изображений (удаление фона, улучшение качества, редизайн)",
-                        "Генерация видео и анимаций (промо-ролики, раскадровки)"
-                    ]
-                },
-                {
-                    icon: "✍️",
-                    title: "Работа с текстами",
-                    description: "Качественный контент для ваших проектов",
-                    services: [
-                        "Написание рекламных текстов (слоганы, продающие описания)",
-                        "Генерация диалогов, сценариев, email-рассылок",
-                        "Рерайтинг и корректура текстов через нейросети"
-                    ]
-                },
-                {
-                    icon: "⚙️",
-                    title: "Автоматизация и интеграции",
-                    description: "Связываем все системы воедино",
-                    services: [
-                        "Подключение внешних API (CRM, базы данных, платёжки)",
-                        "Настройка автоматических рассылок (почта, Telegram, WhatsApp и т.д.)",
-                        "Интеграция чат-ботов и ИИ в лендинги/сайты"
-                    ]
-                },
-                {
-                    icon: "📄",
-                    title: "Документы и презентации",
-                    description: "Профессиональные материалы под ключ",
-                    services: [
-                        "Генерация презентаций",
-                        "Автоматическое составление отчетов, таблиц, резюме",
-                        "Подготовка PDF, DOCX и других форматов «под ключ»"
-                    ]
-                }
-            ];
-
-            return (
-                <div>
-                    {servicesData.map((service, index) => (
-                        <ServiceCard key={index} {...service} />
-                    ))}
-                </div>
-            );
-        };
-
-        ReactDOM.render(<ServicesContainer />, document.getElementById('services-container'));
-    </script>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <script>
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ 
-                behavior: 'smooth' 
-            });
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or respect OS preference
+        if (localStorage.getItem('theme') === 'dark' || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
         }
-
-        function sendMessage() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (!name || !email || !message) {
-                alert('Пожалуйста, заполните все поля');
-                return;
-            }
-            
-            const subject = `Новое сообщение от ${name}`;
-            const body = `Имя: ${name}\nEmail: ${email}\n\nСообщение:\n${message}`;
-            
-            const mailtoLink = `mailto:ai.solutions.work@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
-        }
-
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuIcon = document.getElementById('menu-icon');
-            
-            if (mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.remove('hidden');
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-times');
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
             } else {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.remove('fa-times');
-                menuIcon.classList.add('fa-bars');
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
             }
-        }
-
-        function closeMobileMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuIcon = document.getElementById('menu-icon');
-            
-            mobileMenu.classList.add('hidden');
-            menuIcon.classList.remove('fa-times');
-            menuIcon.classList.add('fa-bars');
-        }
-
-        function scrollToTop() {
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
         });
-
-        // Add scroll effect to header and back to top button
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            const backToTop = document.getElementById('back-to-top');
-            
-            if (window.scrollY > 100) {
-                header.classList.add('bg-gray-900');
-                backToTop.classList.remove('opacity-0', 'invisible');
-                backToTop.classList.add('opacity-100', 'visible');
-            } else {
-                header.classList.remove('bg-gray-900');
-                backToTop.classList.add('opacity-0', 'invisible');
-                backToTop.classList.remove('opacity-100', 'visible');
-            }
-        });
-
-        // Track clicks for analytics
-        function trackClick(element, action) {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click', {
-                    'event_category': 'engagement',
-                    'event_label': action,
-                    'value': 1
-                });
-            }
-        }
-
-        // Add click tracking to CTA buttons
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctaButtons = document.querySelectorAll('button[onclick*="scrollToSection"], a[href*="t.me"]');
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    trackClick(this, this.textContent.trim());
-                });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             });
-        });
-
-        // Modern Carousel functionality (shadcn/ui inspired)
-        let carouselContent, carouselItems, prevButton, nextButton, container;
-        let currentIndex = 0;
-        let itemWidth = 0;
-        let visibleItems = 1;
-        let isCarouselInitialized = false;
-
-        // Initialize carousel
-        function initializeCarousel() {
-            // Get elements
-            carouselContent = document.getElementById("carousel-content");
-            container = document.querySelector(".carousel-container");
-            prevButton = document.getElementById("carousel-prev");
-            nextButton = document.getElementById("carousel-next");
-
-            // Check if elements exist
-            if (!carouselContent || !container || !prevButton || !nextButton) {
-                console.log("Carousel elements not found, retrying...");
-                setTimeout(initializeCarousel, 100);
-                return;
-            }
-
-            carouselItems = Array.from(carouselContent.children);
-            
-            if (carouselItems.length === 0) {
-                console.log("No carousel items found, retrying...");
-                setTimeout(initializeCarousel, 100);
-                return;
-            }
-
-            // Calculate responsive settings
-            updateCarouselSettings();
-            
-            // Set up event listeners
-            setupCarouselEvents();
-            
-            // Initialize position
-            updateCarouselPosition();
-            
-            isCarouselInitialized = true;
-            console.log("Carousel initialized successfully");
-        }
-
-        // Update carousel settings based on screen size
-        function updateCarouselSettings() {
-            const containerWidth = container.offsetWidth;
-            
-            if (containerWidth >= 1024) {
-                visibleItems = 3;
-            } else if (containerWidth >= 768) {
-                visibleItems = 2;
-            } else {
-                visibleItems = 1;
-            }
-
-            itemWidth = containerWidth / visibleItems;
-            
-            // Update item widths
-            carouselItems.forEach(item => {
-                item.style.width = `${itemWidth}px`;
-            });
-
-            // Ensure current index is within bounds
-            const maxIndex = Math.max(0, carouselItems.length - visibleItems);
-            if (currentIndex > maxIndex) {
-                currentIndex = maxIndex;
-            }
-        }
-
-        // Setup carousel event listeners
-        function setupCarouselEvents() {
-            if (!isCarouselInitialized) return;
-
-            // Navigation buttons
-            nextButton.addEventListener("click", () => {
-                const maxIndex = Math.max(0, carouselItems.length - visibleItems);
-                if (currentIndex < maxIndex) {
-                    currentIndex++;
-                    updateCarouselPosition();
-                }
-            });
-
-            prevButton.addEventListener("click", () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateCarouselPosition();
-                }
-            });
-
-            // Touch/swipe functionality
-            setupSwipeEvents();
-            
-            // Window resize handler
-            window.addEventListener('resize', debounce(() => {
-                updateCarouselSettings();
-                updateCarouselPosition();
-            }, 250));
-        }
-
-        // Setup swipe events
-        function setupSwipeEvents() {
-            if (!carouselContent) return;
-
-            let startX = 0;
-            let currentX = 0;
-            let isDragging = false;
-
-            carouselContent.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                isDragging = true;
-                carouselContent.style.transition = 'none';
-            }, { passive: true });
-
-            carouselContent.addEventListener('touchmove', (e) => {
-                if (!isDragging) return;
-                currentX = e.touches[0].clientX;
-                const diffX = startX - currentX;
-                const maxIndex = Math.max(0, carouselItems.length - visibleItems);
-                
-                // Calculate bounds for swipe
-                const maxTranslate = 0;
-                const minTranslate = -maxIndex * itemWidth;
-                const currentTransform = -currentIndex * itemWidth;
-                const newTransform = currentTransform - diffX;
-                
-                // Clamp the transform to prevent infinite scrolling
-                const clampedTransform = Math.max(minTranslate, Math.min(maxTranslate, newTransform));
-                carouselContent.style.transform = `translateX(${clampedTransform}px)`;
-            }, { passive: true });
-
-            carouselContent.addEventListener('touchend', () => {
-                if (!isDragging) return;
-                isDragging = false;
-                carouselContent.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-                
-                const diffX = startX - currentX;
-                const threshold = itemWidth / 3;
-                const maxIndex = Math.max(0, carouselItems.length - visibleItems);
-                
-                if (Math.abs(diffX) > threshold) {
-                    if (diffX > 0 && currentIndex < maxIndex) {
-                        currentIndex++;
-                    } else if (diffX < 0 && currentIndex > 0) {
-                        currentIndex--;
-                    }
-                }
-                
-                // Ensure current index is within bounds
-                currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
-                
-                updateCarouselPosition();
-            }, { passive: true });
-        }
-
-        // Update carousel position
-        function updateCarouselPosition() {
-            if (!carouselContent || !isCarouselInitialized) return;
-            
-            // Calculate center offset for proper centering
-            const containerWidth = container.offsetWidth;
-            const totalWidth = carouselItems.length * itemWidth;
-            const centerOffset = (containerWidth - itemWidth) / 2;
-            const translateX = -currentIndex * itemWidth + centerOffset;
-            
-            carouselContent.style.transform = `translateX(${translateX}px)`;
-            
-            // Update button states
-            updateButtonStates();
-        }
-
-        // Update button states
-        function updateButtonStates() {
-            if (!prevButton || !nextButton) return;
-            
-            const maxIndex = Math.max(0, carouselItems.length - visibleItems);
-            
-            prevButton.disabled = currentIndex === 0;
-            nextButton.disabled = currentIndex >= maxIndex;
-            
-            prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
-            nextButton.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
-        }
-
-        // Debounce function
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        // Keyboard navigation
-        document.addEventListener("keydown", (e) => {
-            if (!isCarouselInitialized) return;
-            
-            if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-                const maxIndex = Math.max(0, carouselItems.length - visibleItems);
-                if (currentIndex < maxIndex) {
-                    currentIndex++;
-                    updateCarouselPosition();
-                }
-            } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateCarouselPosition();
-                }
-            }
-        });
-
-        // Modal functionality
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId + '-modal');
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-                
-                // Add animation
-                modal.style.opacity = '0';
-                setTimeout(() => {
-                    modal.style.opacity = '1';
-                }, 10);
-            }
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId + '-modal');
-            if (modal) {
-                modal.style.opacity = '0';
-                setTimeout(() => {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto'; // Restore scrolling
-                }, 300);
-            }
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                const modalId = event.target.id.replace('-modal', '');
-                closeModal(modalId);
-            }
-        }
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                const openModal = document.querySelector('.modal[style*="block"]');
-                if (openModal) {
-                    const modalId = openModal.id.replace('-modal', '');
-                    closeModal(modalId);
-                }
-            }
-        });
-
-        // Prevent carousel drag when clicking on buttons
-        document.querySelectorAll('.details-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevent card click
-            });
-        });
-
-        // Initialize everything
-        window.onload = () => {
-            initializeCarousel();
-        };
-
-        // Also try to initialize on DOMContentLoaded
-        document.addEventListener('DOMContentLoaded', () => {
-            if (!isCarouselInitialized) {
-                initializeCarousel();
-            }
         });
     </script>
 </body>
