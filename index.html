@@ -82,7 +82,7 @@
                 --border-color: #334155;
                 --shadow-color: rgba(0, 0, 0, 0.25);
                 --hero-bg: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-                --card-shadow: 极速加速器 0 10px 25px -5px var(--shadow-color);
+                --card-shadow: 0 10px 25px -5px var(--shadow-color);
             }
         }
 
@@ -97,7 +97,7 @@
             line-height: 1.6;
             color: var(--text-primary);
             background-color: var(--bg-primary);
-            transition: background-color 0.3s ease, color 极速加速器 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
             overflow-x: hidden;
         }
 
@@ -146,7 +146,7 @@
             transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
         }
 
-        .极速加速器 scale-in.visible {
+        .scale-in.visible {
             opacity: 1;
             transform: scale(1);
         }
@@ -303,13 +303,13 @@
         }
 
         .hero-content {
-           极速加速器 max-width: 1200px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
             position: relative;
             z-index: 2;
             display: grid;
-            grid-template极速加速器-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
         }
@@ -341,14 +341,14 @@
         .hero h1 span {
             background: var(--gradient-primary);
             -webkit-background-clip: text;
-            background-cl极速加速器ip: text;
+            background-clip: text;
             color: transparent;
         }
 
         .hero .subtitle {
             font-size: 1.25rem;
             color: var(--text-secondary);
-            margin-bottom: 40极速加速器px;
+            margin-bottom: 40px;
             font-weight: 400;
             line-height: 1.6;
         }
@@ -519,7 +519,7 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 极速加速器 60px;
+            width: 60px;
             height: 4px;
             background: var(--gradient-accent);
             border-radius: 2px;
@@ -559,9 +559,9 @@
             top: 0;
             left: 0;
             width: 5px;
-           极速加速器 height: 0;
+            height: 0;
             background: var(--gradient-accent);
-            transition: height 0.5极速加速器s ease;
+            transition: height 0.5s ease;
         }
 
         .service-card:hover::before {
@@ -584,7 +584,7 @@
             margin-bottom: 25px;
             font-size: 1.8rem;
             color: white;
-            box-shadow: 0 10px 20px rgba极速加速器(0, 74, 153, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 74, 153, 0.2);
             position: relative;
             z-index: 2;
         }
@@ -620,7 +620,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-极速加速器        }
+        }
 
         .service-features li::before {
             content: '✓';
@@ -696,8 +696,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 极速加速器 100%;
-            background: linear-gradient(45deg, rgba(0,0,0,0.1) 极速加速器 0%, transparent 100%);
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0,0,0,0.1) 0%, transparent 100%);
         }
 
         .portfolio-content {
@@ -722,7 +722,7 @@
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 20px;
-极速加速器        }
+        }
 
         .tech-tag {
             background: rgba(0, 74, 153, 0.1);
@@ -733,7 +733,7 @@
             font-weight: 500;
         }
 
-极速加速器        .portfolio-link {
+        .portfolio-link {
             color: var(--accent);
             text-decoration: none;
             font-weight: 600;
@@ -751,7 +751,7 @@
         .carousel-nav {
             display: flex;
             justify-content: center;
-            gap: 15极速加速器px;
+            gap: 15px;
             margin-top: 40px;
         }
 
@@ -804,7 +804,7 @@
 
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, min极速加速器max(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             counter-reset: step-counter;
             position: relative;
@@ -878,10 +878,10 @@
             border-radius: 20px;
             box-shadow: var(--card-shadow);
             position: relative;
-            border: 1px solid var(--border极速加速器-color);
+            border: 1px solid var(--border-color);
         }
 
-        .极速加速器 testimonial-card::before {
+        .testimonial-card::before {
             content: '"';
             position: absolute;
             top: 20px;
@@ -923,12 +923,12 @@
 
         .author-info h4 {
             color: var(--text-primary);
-            font-weight: 极速加速器 600;
+            font-weight: 600;
             margin-bottom: 5px;
         }
 
         .author-info p {
-           极速加速器 color: var(--text-muted);
+            color: var(--text-muted);
             font-size: 0.9rem;
         }
 
@@ -949,7 +949,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 极速加速器 18c3.866 0 7-3.134 7-7s-3.134-7-极速加速器7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-极速加速器7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 极速加速器 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4极速加速器 4 4zm28-65c2.21 0 4-1.79 4-4极速加速器s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.极速加速器24-5 5 2.24 5 5极速加速器 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
             opacity: 0.3;
         }
 
@@ -1051,7 +1051,7 @@
 
         .footer-content {
             display: grid;
-            grid-template-column极速加速器s: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 60px;
         }
@@ -1118,36 +1118,56 @@
         }
 
         .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
             border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
         }
 
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient-accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(242, 92, 5, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(242, 92, 5, 0.4);
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
             .hero-content {
-                grid-template-columns: 1fr;
-                gap: 50px;
-                text-align: center;
+                gap: 40px;
             }
-
-            .hero-text {
-                max-width: 100%;
-            }
-
-            .hero-cta {
-                justify-content: center;
-            }
-
-            .hero-visual-content {
-                max-width: 400px;
-                height: 300px;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            
+            .portfolio-item {
+                flex: 0 0 calc(50% - 20px);
             }
         }
 
@@ -1155,95 +1175,117 @@
             .nav-menu {
                 position: fixed;
                 top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
+                left: 0;
+                right: 0;
                 background: var(--bg-primary);
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 40px;
-                transition: all 0.5s ease;
+                padding: 20px;
+                box-shadow: 0 10px 30px var(--shadow-color);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
                 z-index: 999;
             }
-
+            
             .nav-menu.active {
-                left: 0;
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
             }
-
+            
             .mobile-menu-toggle {
                 display: block;
             }
-
-            .hero h1 {
-                font-size: 2.5rem;
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
+            
+            .hero-text {
+                max-width: 100%;
             }
-
+            
+            .hero-cta {
+                justify-content: center;
+            }
+            
+            .hero-visual {
+                order: -1;
+            }
+            
+            .hero-visual-content {
+                height: 300px;
+            }
+            
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2.3rem;
             }
-
+            
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .portfolio-item {
-                flex: 0 0 calc(50% - 20px);
+                flex: 0 0 calc(100% - 20px);
+            }
+            
+            .cta-form {
+                padding: 30px 20px;
             }
         }
 
-        @media (max-width: 576px) {
-            .hero {
-                padding: 120px 0 80px;
-            }
-
+        @media (max-width: 480px) {
             .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cta-button {
+                padding: 14px 30px;
+            }
+            
+            .section-title {
                 font-size: 2rem;
             }
-
-            .cta-button {
-                width: 100%;
-                justify-content: center;
+            
+            .service-card {
+                padding: 30px 20px;
             }
-
-            .services-grid {
+            
+            .footer-content {
                 grid-template-columns: 1fr;
             }
-
-            .portfolio-item {
-                flex: 0 0 100%;
-            }
-
-            .process-steps::before {
-                display: none;
-            }
-
+            
             .cta-title {
-                font-size: 2rem;
-            }
-
-            .cta-form {
-                padding: 25px;
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="header" id="header">
+    <header class="header">
         <div class="nav-container">
             <a href="#" class="logo">
-                <i class="fas fa-brain"></i>
-                <span>TrustSolution</span>
+                <img src="logo.png" alt="TrustSolution Logo">
+                TrustSolution
             </a>
             
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#portfolio">Портфолио</a></li>
-                <li><a href="#process">Процесс</a></li>
-                <li><a href="#testimonials">Отзывы</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#portfolio">Портфолио</a></li>
+                    <li><a href="#process">Процесс</a></li>
+                    <li><a href="#testimonials">Отзывы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
             
             <div class="header-controls">
                 <div class="theme-switcher">
@@ -1251,7 +1293,6 @@
                         <i class="fas fa-moon"></i>
                     </button>
                 </div>
-                
                 <button class="mobile-menu-toggle" id="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -1260,30 +1301,30 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="hero">
+    <section class="hero">
         <div class="hero-content">
-            <div class="hero-text slide-in-left">
-                <span class="hero-badge">AI-решения для бизнеса</span>
-                <h1>Превращаем <span>идеи</span> в интеллектуальные решения</h1>
-                <p class="subtitle">Создаем чат-боты, автоматизируем процессы и генерируем контент с помощью искусственного интеллекта для роста вашего бизнеса</p>
+            <div class="hero-text">
+                <span class="hero-badge">AI решения для вашего бизнеса</span>
+                <h1>Превращаем идеи в <span>интеллектуальные решения</span></h1>
+                <p class="subtitle">Создаем чат-боты, генерируем контент и автоматизируем процессы с помощью искусственного интеллекта для роста вашего бизнеса</p>
                 <div class="hero-cta">
                     <a href="#contact" class="cta-button">
-                        <span>Обсудить проект</span>
+                        Обсудить проект
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#services" class="cta-button secondary">
-                        <span>Наши услуги</span>
+                    <a href="#portfolio" class="cta-button secondary">
+                        Смотреть работы
+                        <i class="fas fa-eye"></i>
                     </a>
                 </div>
             </div>
-            
-            <div class="hero-visual slide-in-right">
+            <div class="hero-visual">
                 <div class="hero-visual-content">
                     <i class="fas fa-robot"></i>
+                    <div class="floating-element"><i class="fas fa-comment"></i></div>
+                    <div class="floating-element"><i class="fas fa-image"></i></div>
+                    <div class="floating-element"><i class="fas fa-cogs"></i></div>
                 </div>
-                <div class="floating-element"><i class="fas fa-comments"></i></div>
-                <div class="floating-element"><i class="fas fa-image"></i></div>
-                <div class="floating-element"><i class="fas fa-cogs"></i></div>
             </div>
         </div>
     </section>
@@ -1293,57 +1334,93 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="section-title">Наши услуги</h2>
-                <p class="section-subtitle">Мы предлагаем полный спектр AI-решений для автоматизации и улучшения вашего бизнеса</p>
+                <p class="section-subtitle">Мы предлагаем полный спектр услуг по разработке AI-решений для вашего бизнеса</p>
             </div>
             
             <div class="services-grid">
-                <div class="service-card fade-in">
+                <div class="service-card slide-in-left">
                     <div class="service-icon">
-                        <i class="fas fa-comment-dots"></i>
+                        <i class="fas fa-comments"></i>
                     </div>
-                    <h3>Умные чат-боты</h3>
-                    <p>Создаем интеллектуальных чат-ботов для поддержки клиентов, автоматизации продаж и обработки запросов.</p>
+                    <h3>Чат-боты</h3>
+                    <p>Создаем интеллектуальных чат-ботов для автоматизации коммуникации с клиентами и решения бизнес-задач.</p>
                     <ul class="service-features">
-                        <li>Интеграция с популярными мессенджерами</li>
-                        <li>Обучение на ваших данных</li>
-                        <li>Аналитика и улучшение диалогов</li>
+                        <li>Разработка Telegram-ботов (Q&A, поддержка клиентов)</li>
+                        <li>Интеграции с CRM и сайтами</li>
+                        <li>Настройка ботов для сайта</li>
+                        <li>Интеграция ботов с нейросетями</li>
                     </ul>
-                    <a href="#" class="service-link">
-                        <span>Узнать больше</span>
+                    <a href="#contact" class="service-link">
+                        Заказать разработку
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
                 <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Генерация изображений и медиа</h3>
+                    <p>Создаем визуальный контент с помощью AI: от иллюстраций до промо-роликов.</p>
+                    <ul class="service-features">
+                        <li>Создание иллюстраций, баннеров, логотипов</li>
+                        <li>Генерация рекламных креативов</li>
+                        <li>Доработка изображений (удаление фона, улучшение качества)</li>
+                        <li>Генерация видео и анимаций</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        Заказать контент
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card slide-in-right">
                     <div class="service-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
-                    <h3>Генерация контента</h3>
-                    <p>Автоматизируем создание текстового и визуального контента с помощью нейросетей для экономии времени и ресурсов.</p>
+                    <h3>Работа с текстами</h3>
+                    <p>Генерируем и оптимизируем текстовый контент с помощью нейросетей для любых целей.</p>
                     <ul class="service-features">
-                        <li>Статьи, описания и рекламные тексты</li>
-                        <li>Генерация изображений по описанию</li>
-                        <li>Поддержка различных стилей и тональностей</li>
+                        <li>Написание рекламных текстов (слоганы, продающие описания)</li>
+                        <li>Генерация диалогов, сценариев, email-рассылок</li>
+                        <li>Рерайтинг и корректура текстов через нейросети</li>
                     </ul>
-                    <a href="#" class="service-link">
-                        <span>Узнать больше</span>
+                    <a href="#contact" class="service-link">
+                        Заказать тексты
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card slide-in-left">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Автоматизация и интеграции</h3>
+                    <p>Настраиваем автоматизацию бизнес-процессов и интегрируем различные системы.</p>
+                    <ul class="service-features">
+                        <li>Подключение внешних API (CRM, базы данных, платёжки)</li>
+                        <li>Настройка автоматических рассылок</li>
+                        <li>Интеграция чат-ботов и ИИ в лендинги/сайты</li>
+                    </ul>
+                    <a href="#contact" class="service-link">
+                        Заказать интеграцию
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
+                        <i class="fas fa-file-pdf"></i>
                     </div>
-                    <h3>Автоматизация процессов</h3>
-                    <p>Оптимизируем бизнес-процессы с помощью AI: от анализа данных до автоматического принятия решений.</p>
+                    <h3>Документы и презентации</h3>
+                    <p>Создаем профессиональные документы и презентации с помощью AI-технологий.</p>
                     <ul class="service-features">
-                        <li>Анализ и обработка больших данных</li>
-                        <li>Автоматизация рутинных задач</li>
-                        <li>Интеграция с существующими системами</li>
+                        <li>Генерация презентаций</li>
+                        <li>Автоматическое составление отчетов, таблиц, резюме</li>
+                        <li>Подготовка PDF, DOCX и других форматов «под ключ»</li>
                     </ul>
-                    <a href="#" class="service-link">
-                        <span>Узнать больше</span>
+                    <a href="#contact" class="service-link">
+                        Заказать документы
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -1356,63 +1433,101 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="section-title">Наши работы</h2>
-                <p class="section-subtitle">Реализованные проекты, которые помогли нашим клиентам достичь своих целей</p>
+                <p class="section-subtitle">Примеры реализованных проектов и успешных кейсов</p>
             </div>
             
             <div class="portfolio-carousel">
                 <div class="portfolio-track" id="portfolio-track">
-                    <div class="portfolio-item fade-in">
+                    <div class="portfolio-item">
                         <div class="portfolio-image">
-                            <i class="fas fa-shopping-cart"></i>
+                            <i class="fas fa-robot"></i>
                         </div>
                         <div class="portfolio-content">
-                            <h3>AI-ассистент для интернет-магазина</h3>
-                            <p>Умный помощник для подбора товаров и консультации клиентов, увеличивший конверсию на 35%.</p>
+                            <h3>Telegram-бот для интернет-магазина</h3>
+                            <p>Умный бот для обработки заказов, ответов на вопросы и интеграции с CRM-системой.</p>
                             <div class="portfolio-tech">
                                 <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Dialogflow</span>
-                                <span class="tech-tag">Telegram API</span>
+                                <span class="tech-tag">Aiogram</span>
+                                <span class="tech-tag">API</span>
                             </div>
                             <a href="#" class="portfolio-link">
-                                <span>Смотреть кейс</span>
+                                Подробнее о проекте
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                     
-                    <div class="portfolio-item fade-in">
+                    <div class="portfolio-item">
                         <div class="portfolio-image">
-                            <i class="fas fa-newspaper"></i>
+                            <i class="fas fa-images"></i>
                         </div>
                         <div class="portfolio-content">
-                            <h3>Генератор контента для медиа</h3>
-                            <p>Система автоматического создания новостных статей и подборок на основе trending-тем.</p>
+                            <h3>Генерация креативов для рекламы</h3>
+                            <p>Создание серии рекламных баннеров и иллюстраций с помощью нейросетей для кампании в соцсетях.</p>
                             <div class="portfolio-tech">
-                                <span class="tech-tag">GPT-4</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Midjourney</span>
+                                <span class="tech-tag">Stable Diffusion</span>
+                                <span class="tech-tag">Photoshop</span>
                             </div>
                             <a href="#" class="portfolio-link">
-                                <span>Смотреть кейс</span>
+                                Подробнее о проекте
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                     
-                    <div class="portfolio-item fade-in">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Автоматизация email-рассылок</h3>
+                            <p>Настройка автоматической системы триггерных писем с персонализацией контента для каждого клиента.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">GPT-3</span>
+                                <span class="tech-tag">Mailchimp API</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <a href="#" class="portfolio-link">
+                                Подробнее о проекте
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
                         <div class="portfolio-image">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <div class="portfolio-content">
-                            <h3>Аналитическая система для ритейла</h3>
-                            <p>AI-решение для прогнозирования спроса, управления запасами и оптимизации ассортимента.</p>
+                            <h3>Аналитическая панель с AI</h3>
+                            <p>Разработка дашборда с AI-аналитикой для прогнозирования продаж и анализа поведения клиентов.</p>
                             <div class="portfolio-tech">
+                                <span class="tech-tag">React</span>
                                 <span class="tech-tag">TensorFlow</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Tableau</span>
+                                <span class="tech-tag">Node.js</span>
                             </div>
                             <a href="#" class="portfolio-link">
-                                <span>Смотреть кейс</span>
+                                Подробнее о проекте
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>AI-рекомендации для e-commerce</h3>
+                            <p>Внедрение системы рекомендаций товаров на основе машинного обучения для увеличения конверсии.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">ML</span>
+                                <span class="tech-tag">API</span>
+                            </div>
+                            <a href="#" class="portfolio-link">
+                                Подробнее о проекте
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -1428,10 +1543,8 @@
                     </button>
                 </div>
                 
-                <div class="carousel-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+                <div class="carousel-dots" id="carousel-dots">
+                    <!-- dots will be generated by JS -->
                 </div>
             </div>
         </div>
@@ -1442,32 +1555,32 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="section-title">Как мы работаем</h2>
-                <p class="section-subtitle">Четкий процесс разработки, обеспечивающий качественный результат и соблюдение сроков</p>
+                <p class="section-subtitle">Четкий процесс разработки для достижения лучших результатов</p>
             </div>
             
             <div class="process-steps">
                 <div class="process-step fade-in">
                     <div class="step-number"></div>
-                    <h3>Анализ и планирование</h3>
-                    <p>Изучаем ваш бизнес, цели и задачи, чтобы предложить оптимальное AI-решение.</p>
+                    <h3>Обсуждаем проект</h3>
+                    <p>Анализируем ваши цели, целевую аудиторию и задачи, которые нужно решить</p>
                 </div>
                 
                 <div class="process-step fade-in">
                     <div class="step-number"></div>
-                    <h3>Прототипирование</h3>
-                    <p>Создаем прототип решения для утверждения концепции и функциональности.</p>
+                    <h3>Разрабатываем концепцию</h3>
+                    <p>Создаем прототипы и предлагаем оптимальные AI-решения для вашего бизнеса</p>
                 </div>
                 
                 <div class="process-step fade-in">
                     <div class="step-number"></div>
-                    <h3>Разработка</h3>
-                    <p>Реализуем полный цикл разработки с использованием современных технологий.</p>
+                    <h3>Реализуем проект</h3>
+                    <p>Разрабатываем и интегрируем выбранные решения, тестируем и оптимизируем</p>
                 </div>
                 
                 <div class="process-step fade-in">
                     <div class="step-number"></div>
-                    <h3>Тестирование и запуск</h3>
-                    <p>Тщательно тестируем решение и запускаем его в работу с последующей поддержкой.</p>
+                    <h3>Поддерживаем</h3>
+                    <p>Обеспечиваем техническую поддержку и дальнейшее развитие проекта</p>
                 </div>
             </div>
         </div>
@@ -1478,39 +1591,39 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="section-title">Отзывы клиентов</h2>
-                <p class="section-subtitle">Что говорят наши клиенты о сотрудничестве с нами</p>
+                <p class="section-subtitle">Что говорят о сотрудничестве с нами</p>
             </div>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">"Внедрение чат-бота позволило нам сократить нагрузку на службу поддержки на 70% и увеличить конверсию в продажи. Отличная работа команды TrustSolution!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">МК</div>
-                        <div class="author-info">
-                            <h4>Мария Ковалева</h4>
-                            <p>Директор по маркетингу, RetailCompany</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">"Генератор контента, разработанный TrustSolution, экономит нам десятки часов работы в неделю. Качество текстов на высшем уровне, почти не требует правок."</p>
+                    <p class="testimonial-text">Заказали разработку Telegram-бота для нашего интернет-магазина. Результат превзошел ожидания! Бот не только отвечает на вопросы, но и помогает оформить заказ, существенно разгрузив менеджеров.</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">АС</div>
                         <div class="author-info">
-                            <h4>Алексей Смирнов</h4>
-                            <p>Главный редактор, MediaPortal</p>
+                            <h4>Анна Смирнова</h4>
+                            <p>Директор, "StyleShop"</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">"Система прогнозирования спроса помогла оптимизировать наши запасы и сократить расходы на 25%. Очень впечатлены глубиной проработки решения."</p>
+                    <p class="testimonial-text">TrustSolution создали для нас серию рекламных креативов с помощью нейросетей. Подход к работе профессиональный, креативы получились яркие и эффективные — CTR вырос на 35%.</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">ИВ</div>
+                        <div class="author-avatar">МК</div>
                         <div class="author-info">
-                            <h4>Ирина Волкова</h4>
-                            <p>Операционный директор, FashionStore</p>
+                            <h4>Михаил Козлов</h4>
+                            <p>Маркетолог, "TechGadgets"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">Настроили автоматизацию документооборота в нашей компании. Система сама генерирует отчеты, готовит коммерческие предложения и ведет базу клиентов. Экономия времени колоссальная!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ЕП</div>
+                        <div class="author-info">
+                            <h4>Елена Петрова</h4>
+                            <p>CEO, "БизнесКонсалт"</p>
                         </div>
                     </div>
                 </div>
@@ -1521,32 +1634,35 @@
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
         <div class="cta-content">
-            <h2 class="cta-title fade-in">Готовы преобразовать ваш бизнес?</h2>
-            <p class="cta-text fade-in">Оставьте заявку, и мы свяжемся с вами для обсуждения вашего проекта</p>
+            <h2 class="cta-title fade-in">Готовы создать AI-решение для вашего бизнеса?</h2>
+            <p class="cta-text fade-in">Оставьте заявку и мы обсудим ваш проект в течение 24 часов</p>
             
-            <div class="cta-form scale-in">
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Ваше имя</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Опишите ваш проект</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        <span>Отправить заявку</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-            </div>
+            <form class="cta-form fade-in" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" name="name" required placeholder="Как к вам обращаться?">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="example@mail.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (000) 000-00-00">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Опишите ваш проект</label>
+                    <textarea id="message" name="message" required placeholder="Расскажите о ваших задачах и целях..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    Отправить заявку
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
         </div>
     </section>
 
@@ -1556,22 +1672,23 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>TrustSolution</h3>
-                    <p>Создаем интеллектуальные решения с использованием искусственного интеллекта для роста и автоматизации вашего бизнеса.</p>
+                    <p>Создаем интеллектуальные решения с использованием искусственного интеллекта для роста вашего бизнеса.</p>
                     <div class="footer-social">
                         <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Услуги</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Умные чат-боты</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Генерация контента</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Автоматизация процессов</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> AI-консультации</a></li>
+                        <li><a href="#services">Чат-боты</a></li>
+                        <li><a href="#services">Генерация изображений</a></li>
+                        <li><a href="#services">Работа с текстами</a></li>
+                        <li><a href="#services">Автоматизация</a></li>
+                        <li><a href="#services">Документы и презентации</a></li>
                     </ul>
                 </div>
                 
@@ -1579,7 +1696,7 @@
                     <h3>Контакты</h3>
                     <ul class="footer-links">
                         <li><a href="mailto:info@trustsolution.ru"><i class="fas fa-envelope"></i> info@trustsolution.ru</a></li>
-                        <li><a href="tel:+79991234567"><i class="fas fa-phone"></i> +7 (999) 123-45-67</a></li>
+                        <li><a href="tel:+78001234567"><i class="fas fa-phone"></i> +7 (800) 123-45-67</a></li>
                         <li><a href="#"><i class="fas fa-map-marker-alt"></i> Москва, ул. Примерная, 15</a></li>
                     </ul>
                 </div>
@@ -1591,55 +1708,132 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
     <script>
-        // Theme switching functionality
+        // Theme Toggle
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         
         // Check for saved theme preference or respect OS preference
-        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        updateThemeIcon(savedTheme);
+        if (localStorage.getItem('theme') === 'dark' || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
         
         themeToggle.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
+            if (currentTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
         });
         
-        function updateThemeIcon(theme) {
-            if (theme === 'dark') {
-                themeIcon.className = 'fas fa-sun';
-            } else {
-                themeIcon.className = 'fas fa-moon';
-            }
-        }
-        
-        // Mobile menu functionality
+        // Mobile Menu Toggle
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const navMenu = document.getElementById('nav-menu');
+        const navMenu = document.querySelector('.nav-menu');
         
         mobileMenuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            mobileMenuToggle.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+            mobileMenuToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        // Portfolio Carousel
+        const track = document.getElementById('portfolio-track');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+        const dotsContainer = document.getElementById('carousel-dots');
+        
+        const items = document.querySelectorAll('.portfolio-item');
+        const itemCount = items.length;
+        const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+        let currentPosition = 0;
+        
+        // Create dots
+        for (let i = 0; i < Math.ceil(itemCount / visibleItems); i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToSlide(i);
             });
+            dotsContainer.appendChild(dot);
+        }
+        
+        const dots = document.querySelectorAll('.dot');
+        
+        function updateCarousel() {
+            const itemWidth = items[0].offsetWidth + 20; // including margin
+            track.style.transform = `translateX(-${currentPosition * itemWidth * visibleItems}px)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentPosition);
+            });
+        }
+        
+        function goToSlide(position) {
+            currentPosition = position;
+            updateCarousel();
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentPosition > 0) {
+                currentPosition--;
+                updateCarousel();
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentPosition < Math.floor(itemCount / visibleItems) - 1) {
+                currentPosition++;
+                updateCarousel();
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const newVisibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+            if (newVisibleItems !== visibleItems) {
+                currentPosition = 0;
+                updateCarousel();
+            }
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+            observer.observe(el);
         });
         
         // Header scroll effect
-        const header = document.getElementById('header');
-        
+        const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
@@ -1648,78 +1842,38 @@
             }
         });
         
-        // Animation on scroll
-        const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
         
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
-        }, {
-            threshold: 0.1
         });
         
-        animatedElements.forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Simple carousel functionality
-        const track = document.getElementById('portfolio-track');
-        const prevBtn = document.getElementById('carousel-prev');
-        const nextBtn = document.getElementById('carousel-next');
-        const dots = document.querySelectorAll('.dot');
-        
-        let currentIndex = 0;
-        
-        function updateCarousel() {
-            const itemWidth = document.querySelector('.portfolio-item').offsetWidth + 20;
-            track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-            
-            // Update dots
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-        }
-        
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % 3;
-            updateCarousel();
-        });
-        
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + 3) % 3;
-            updateCarousel();
-        });
-        
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentIndex = index;
-                updateCarousel();
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
         
         // Form submission
         const contactForm = document.getElementById('contact-form');
-        
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Here you would normally send the form data to a server
-            alert('Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.');
-            contactForm.reset();
-        });
-        
-        // Initialize animations on page load
-        window.addEventListener('DOMContentLoaded', () => {
-            // Trigger initial animations for elements already in view
-            animatedElements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    el.classList.add('visible');
-                }
-            });
+            alert('Спасибо за вашу заявку! Мы свяжемся с вами в течение 24 часов.');
+            this.reset();
         });
     </script>
 </body>
