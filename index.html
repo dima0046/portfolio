@@ -649,12 +649,17 @@
         .portfolio {
             padding: 100px 0;
             background: var(--bg-primary);
+            position: relative;
         }
 
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+        .portfolio-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-track {
+            display: flex;
+            transition: transform 0.5s ease;
         }
 
         .portfolio-item {
@@ -664,6 +669,8 @@
             box-shadow: var(--card-shadow);
             transition: all 0.3s ease;
             border: 1px solid var(--border-color);
+            flex: 0 0 calc(33.333% - 20px);
+            margin: 0 10px;
         }
 
         .portfolio-item:hover {
@@ -739,6 +746,54 @@
         .portfolio-link:hover {
             gap: 12px;
             color: var(--accent-dark);
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .carousel-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        .carousel-btn:hover {
+            background: var(--accent);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--accent);
+            transform: scale(1.2);
         }
 
         /* Process Section */
@@ -918,32 +973,73 @@
             opacity: 0.9;
         }
 
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+        .cta-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .cta-button.white {
-            background: white;
-            color: var(--primary);
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
         }
 
-        .cta-button.white:hover {
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--primary-dark);
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
 
-        .cta-button.outline {
-            background: transparent;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            border: 2px solid white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
-        .cta-button.outline:hover {
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
             background: white;
             color: var(--primary);
+            border: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-light);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Footer */
@@ -1069,6 +1165,10 @@
             .hero-content {
                 gap: 40px;
             }
+            
+            .portfolio-item {
+                flex: 0 0 calc(50% - 20px);
+            }
         }
 
         @media (max-width: 768px) {
@@ -1124,18 +1224,16 @@
             }
             
             .services-grid,
-            .portfolio-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
             
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .portfolio-item {
+                flex: 0 0 calc(100% - 20px);
             }
             
-            .process-steps::before {
-                display: none;
+            .cta-form {
+                padding: 30px 20px;
             }
         }
 
@@ -1163,6 +1261,10 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
+            
+            .cta-title {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -1172,7 +1274,6 @@
         <div class="nav-container">
             <a href="#" class="logo">
                 <img src="logo.png" alt="TrustSolution Logo">
-                TrustSolution
             </a>
             
             <nav>
@@ -1334,62 +1435,115 @@
                 <p class="section-subtitle">Примеры реализованных проектов и успешных кейсов</p>
             </div>
             
-            <div class="portfolio-grid">
-                <div class="portfolio-item scale-in">
-                    <div class="portfolio-image">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Telegram-бот для интернет-магазина</h3>
-                        <p>Умный бот для обработки заказов, ответов на вопросы и интеграции с CRM-системой.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Aiogram</span>
-                            <span class="tech-tag">API</span>
+            <div class="portfolio-carousel">
+                <div class="portfolio-track" id="portfolio-track">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-robot"></i>
                         </div>
-                        <a href="#" class="portfolio-link">
-                            Подробнее о проекте
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+                        <div class="portfolio-content">
+                            <h3>Telegram-бот для интернет-магазина</h3>
+                            <p>Умный бот для обработки заказов, ответов на вопросы и интеграции с CRM-системой.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Aiogram</span>
+                                <span class="tech-tag">API</span>
+                            </div>
+                            <a href="#" class="portfolio-link">
+                                Подробнее о проекте
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Генерация креативов для рекламы</h3>
+                            <p>Создание серии рекламных баннеров и иллюстраций с помощью нейросетей для кампании в соцсетях.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Midjourney</span>
+                                <span class="tech-tag">Stable Diffusion</span>
+                                <span class="tech-tag">Photoshop</span>
+                            </div>
+                            <a href="#" class="portfolio-link">
+                                Подробнее о проекте
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Автоматизация email-рассылок</h3>
+                            <p>Настройка автоматической системы триггерных писем с персонализацией контента для каждого клиента.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">GPT-3</span>
+                                <span class="tech-tag">Mailchimp API</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            <a href="#" class="portfolio-link">
+                                Подробнее о проекте
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Аналитическая панель с AI</h3>
+                            <p>Разработка дашборда с AI-аналитикой для прогнозирования продаж и анализа поведения клиентов.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Node.js</span>
+                            </div>
+                            <a href="#" class="portfolio-link">
+                                Подробнее о проекте
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>AI-рекомендации для e-commerce</h3>
+                            <p>Внедрение системы рекомендаций товаров на основе машинного обучения для увеличения конверсии.</p>
+                            <div class="portfolio-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">ML</span>
+                                <span class="tech-tag">API</span>
+                            </div>
+                            <a href="#" class="portfolio-link">
+                                Подробнее о проекте
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="portfolio-item scale-in">
-                    <div class="portfolio-image">
-                        <i class="fas fa-images"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Генерация креативов для рекламы</h3>
-                        <p>Создание серии рекламных баннеров и иллюстраций с помощью нейросетей для кампании в соцсетях.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">Midjourney</span>
-                            <span class="tech-tag">Stable Diffusion</span>
-                            <span class="tech-tag">Photoshop</span>
-                        </div>
-                        <a href="#" class="portfolio-link">
-                            Подробнее о проекте
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" id="carousel-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn" id="carousel-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
                 
-                <div class="portfolio-item scale-in">
-                    <div class="portfolio-image">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Автоматизация email-рассылок</h3>
-                        <p>Настройка автоматической системы триггерных писем с персонализацией контента для каждого клиента.</p>
-                        <div class="portfolio-tech">
-                            <span class="tech-tag">GPT-3</span>
-                            <span class="tech-tag">Mailchimp API</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <a href="#" class="portfolio-link">
-                            Подробнее о проекте
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
+                <div class="carousel-dots" id="carousel-dots">
+                    <!-- dots will be generated by JS -->
                 </div>
             </div>
         </div>
@@ -1481,16 +1635,33 @@
         <div class="cta-content">
             <h2 class="cta-title fade-in">Готовы создать AI-решение для вашего бизнеса?</h2>
             <p class="cta-text fade-in">Оставьте заявку и мы обсудим ваш проект в течение 24 часов</p>
-            <div class="cta-buttons">
-                <a href="#contact-form" class="cta-button white fade-in">
-                    Обсудить проект
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="mailto:info@trustsolution.ru" class="cta-button outline fade-in">
-                    Написать на почту
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
+            
+            <form class="cta-form fade-in" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" name="name" required placeholder="Как к вам обращаться?">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="example@mail.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (000) 000-00-00">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Опишите ваш проект</label>
+                    <textarea id="message" name="message" required placeholder="Расскажите о ваших задачах и целях..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    Отправить заявку
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
         </div>
     </section>
 
@@ -1579,6 +1750,68 @@
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
+        // Portfolio Carousel
+        const track = document.getElementById('portfolio-track');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+        const dotsContainer = document.getElementById('carousel-dots');
+        
+        const items = document.querySelectorAll('.portfolio-item');
+        const itemCount = items.length;
+        const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+        let currentPosition = 0;
+        
+        // Create dots
+        for (let i = 0; i < Math.ceil(itemCount / visibleItems); i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+            });
+            dotsContainer.appendChild(dot);
+        }
+        
+        const dots = document.querySelectorAll('.dot');
+        
+        function updateCarousel() {
+            const itemWidth = items[0].offsetWidth + 20; // including margin
+            track.style.transform = `translateX(-${currentPosition * itemWidth * visibleItems}px)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentPosition);
+            });
+        }
+        
+        function goToSlide(position) {
+            currentPosition = position;
+            updateCarousel();
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentPosition > 0) {
+                currentPosition--;
+                updateCarousel();
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentPosition < Math.floor(itemCount / visibleItems) - 1) {
+                currentPosition++;
+                updateCarousel();
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const newVisibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+            if (newVisibleItems !== visibleItems) {
+                currentPosition = 0;
+                updateCarousel();
+            }
+        });
+        
         // Scroll animations
         const observerOptions = {
             root: null,
@@ -1632,6 +1865,14 @@
                 navMenu.classList.remove('active');
                 mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за вашу заявку! Мы свяжемся с вами в течение 24 часов.');
+            this.reset();
         });
     </script>
 </body>
