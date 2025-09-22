@@ -1762,23 +1762,35 @@
         
         const items = document.querySelectorAll('.portfolio-item');
         const itemCount = items.length;
-        const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+        let visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
         let currentPosition = 0;
+        let dots = [];
         
-        // Create dots
-        for (let i = 0; i < Math.ceil(itemCount / visibleItems); i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                goToSlide(i);
-            });
-            dotsContainer.appendChild(dot);
+        function getVisibleItems() {
+            return window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
         }
         
-        const dots = document.querySelectorAll('.dot');
+        function createDots() {
+            // Clear existing dots
+            dotsContainer.innerHTML = '';
+            dots = [];
+            
+            const maxSlides = Math.ceil(itemCount / visibleItems);
+            for (let i = 0; i < maxSlides; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
+                });
+                dotsContainer.appendChild(dot);
+                dots.push(dot);
+            }
+        }
         
         function updateCarousel() {
+            if (items.length === 0) return;
+            
             const itemWidth = items[0].offsetWidth + 20; // including margin
             track.style.transform = `translateX(-${currentPosition * itemWidth * visibleItems}px)`;
             
@@ -1789,7 +1801,15 @@
         }
         
         function goToSlide(position) {
-            currentPosition = position;
+            const maxPosition = Math.ceil(itemCount / visibleItems) - 1;
+            currentPosition = Math.max(0, Math.min(position, maxPosition));
+            updateCarousel();
+        }
+        
+        function initCarousel() {
+            visibleItems = getVisibleItems();
+            currentPosition = 0;
+            createDots();
             updateCarousel();
         }
         
@@ -1801,7 +1821,8 @@
         });
         
         nextBtn.addEventListener('click', () => {
-            if (currentPosition < Math.floor(itemCount / visibleItems) - 1) {
+            const maxPosition = Math.ceil(itemCount / visibleItems) - 1;
+            if (currentPosition < maxPosition) {
                 currentPosition++;
                 updateCarousel();
             }
@@ -1809,12 +1830,16 @@
         
         // Handle window resize
         window.addEventListener('resize', () => {
-            const newVisibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+            const newVisibleItems = getVisibleItems();
             if (newVisibleItems !== visibleItems) {
+                visibleItems = newVisibleItems;
                 currentPosition = 0;
-                updateCarousel();
+                initCarousel();
             }
         });
+        
+        // Initialize carousel
+        initCarousel();
         
         // Scroll animations
         const observerOptions = {
