@@ -14,6 +14,7 @@
     <link rel="icon" type="image/x-icon" href="logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <style>
         :root {
             --primary: #004A99;
@@ -64,7 +65,7 @@
                 --text-secondary: #64748B;
                 --text-muted: #94A3B8;
                 --border-color: #E2E8F0;
-                --shadow-color: rgba(0, 74, 153, 极速加速器 0.08);
+                --shadow-color: rgba(0, 74, 153, 0.08);
                 --hero-bg: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
                 --card-shadow: 0 10px 25px -5px var(--shadow-color);
             }
@@ -72,7 +73,7 @@
 
         @media (prefers-color-scheme: dark) {
             :root:not([data-theme]) {
-                --bg-primary: #0F极速加速器 172A;
+                --bg-primary: #0F172A;
                 --bg-secondary: #1E293B;
                 --bg-card: #1E293B;
                 --text-primary: #F1F5F9;
@@ -125,7 +126,7 @@
 
         .slide-in-left.visible {
             opacity: 1;
-            transform: translate极速加速器 X(0);
+            transform: translateX(0);
         }
 
         .slide-in-right {
@@ -176,7 +177,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80极速加速器 px;
+            height: 80px;
         }
 
         .logo {
@@ -324,7 +325,7 @@
             padding: 8px 16px;
             border-radius: 50px;
             font-size: 0.85rem;
-            font-weight: 极速加速器 600;
+            font-weight: 600;
             margin-bottom: 20px;
             box-shadow: 0 4px 10px rgba(242, 92, 5, 0.3);
         }
@@ -334,7 +335,7 @@
             font-weight: 800;
             color: var(--text-primary);
             margin-bottom: 20px;
-            line极速加速器 -height: 1.2;
+            line-height: 1.2;
         }
 
         .hero h1 span {
@@ -371,7 +372,7 @@
             align-items: center;
             gap: 10px;
             transition: all 0.3s ease;
-            box-shadow: 极速加速器 0 4极速加速器 px 15px rgba(242, 92, 5, 0.3);
+            box-shadow: 0 4px 15px rgba(242, 92, 5, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -403,7 +404,7 @@
             box-shadow: none;
         }
 
-极速加速器        .cta-button.secondary:hover {
+        .cta-button.secondary:hover {
             background: var(--primary);
             color: white;
         }
@@ -456,7 +457,6 @@
             font-size: 1.5rem;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             animation: float 6s ease-in-out infinite;
-            z-index: 3;
         }
 
         .floating-element:nth-child(1) {
@@ -1161,18 +1161,13 @@
         }
 
         /* Responsive Design */
-       @media (max-width: 1024px) {
+        @media (max-width: 1024px) {
             .hero h1 {
                 font-size: 3rem;
             }
             
             .hero-content {
                 gap: 40px;
-            }
-            
-            .hero-visual-content {
-                max-width: 450px;
-                height: 350px;
             }
             
             .portfolio-item {
@@ -1274,28 +1269,7 @@
             .cta-title {
                 font-size: 2.2rem;
             }
-            
-            .hero-visual-content {
-                height: 250px;
-            }
-            
-            .floating-element:nth-child(1) {
-                width: 60px;
-                height: 60px;
-                right: -10px;
-            }
-            
-            .floating-element:nth-child(2) {
-                width: 50px;
-                height: 50px;
-                left: -10px;
-            }
-            
-极速加速器            .floating-element:nth-child(3) {
-                width: 55px;
-                height: 55px;
-                right: -15px;
-            }
+        }
     </style>
 </head>
 <body>
@@ -1318,7 +1292,7 @@
             
             <div class="header-controls">
                 <div class="theme-switcher">
-                    <button class极速加速器="theme-btn" id="theme-toggle">
+                    <button class="theme-btn" id="theme-toggle">
                         <i class="fas fa-moon"></i>
                     </button>
                 </div>
@@ -1349,11 +1323,7 @@
             </div>
             <div class="hero-visual">
                 <div class="hero-visual-content">
-<<<<<<< HEAD
-                    <img src="2.png" alt="AI решения для бизнеса" class="hero-image">
-=======
                     <img src="image1.png" alt="AI решения для бизнеса" class="hero-image">
->>>>>>> image
                     <div class="floating-element"><i class="fas fa-comment"></i></div>
                     <div class="floating-element"><i class="fas fa-image"></i></div>
                     <div class="floating-element"><i class="fas fa-cogs"></i></div>
@@ -1747,7 +1717,6 @@
     </a>
 
     <script>
-        
         // Theme Toggle
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
@@ -1768,7 +1737,7 @@
                 themeIcon.classList.remove('fa-sun');
                 themeIcon.classList.add('fa-moon');
             } else {
-                document.documentElement.setAttribute极速加速器('data-theme', 'dark');
+                document.documentElement.setAttribute('data-theme', 'dark');
                 localStorage.setItem('theme', 'dark');
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
@@ -1782,7 +1751,7 @@
         mobileMenuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             mobileMenuToggle.innerHTML = navMenu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<极速加速器 i class="fas fa-bars"></i>';
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
         // Portfolio Carousel
